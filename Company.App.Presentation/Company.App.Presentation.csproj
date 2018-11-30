@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FlexiMvvm.Lifecycle.PreRelease" Version="0.9.7-prerelease" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Company.App.Application\Company.App.Application.csproj" />
+  </ItemGroup>
+
+</Project>

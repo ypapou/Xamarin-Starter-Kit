@@ -1,0 +1,176 @@
+﻿<#
+// =========================================================================
+// Copyright 2018 EPAM Systems, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// =========================================================================
+#>
+<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension="log" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Xml.Linq" #>
+
+<#
+// *********************** Strings Generation Configuration **********************************
+    var inputResxFiles = Directory.GetFiles(".", "Strings*.resx");
+    string[] outputProjectsRelativePaths =
+    {
+        "..\\..\\Company.App.Droid"
+    };
+// *********************** Strings Generation Configuration **********************************
+
+    var templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+    Directory.SetCurrentDirectory(templateDirectory);
+
+    foreach (var inputResxFile in inputResxFiles)
+    {
+        string locale = ResxUtilities.GetLocale(inputResxFile);
+        var pseudoLocaleName = "qps-ploc";
+
+        if (!locale.Equals(pseudoLocaleName, StringComparison.CurrentCultureIgnoreCase))
+        {
+            if (!string.IsNullOrWhiteSpace(locale))
+            {
+                locale = "-" + locale;
+            }
+            string androidStringsFolder = "Resources" + Path.DirectorySeparatorChar + "values" + locale;
+
+            foreach (var outputProjectRelativePath in outputProjectsRelativePaths)
+            {
+                var inputResxFilePath = Host.ResolvePath(inputResxFile);
+
+                var outputFileName = ResxUtilities.GetNameSpace(inputResxFile).ToLower() + ".xml";
+
+                var outputXmlFilePath = Path.Combine(
+                    templateDirectory,
+                    outputProjectRelativePath,
+                    androidStringsFolder,
+                    outputFileName);
+
+                WriteLine($"Transforming '{inputResxFilePath}' file to {outputXmlFilePath}.");
+
+                ResxToXmlFileTransformer.Transform(inputResxFilePath, outputXmlFilePath);
+            }
+        }
+    }
+#>
+
+<#+
+
+public static class ResxToXmlFileTransformer
+{
+    public static void Transform(string inputResxFilePath, string outputXmlFilePath)
+    {
+        if (string.IsNullOrEmpty(inputResxFilePath))
+        {
+            throw new ArgumentNullException(nameof(inputResxFilePath));
+        }
+
+        if (string.IsNullOrEmpty(outputXmlFilePath))
+        {
+            throw new ArgumentNullException(nameof(outputXmlFilePath));
+        }
+
+        var outputXmlFileFolder = Path.GetDirectoryName(outputXmlFilePath);
+
+        if (!Directory.Exists(outputXmlFileFolder))
+        {
+            Directory.CreateDirectory(outputXmlFileFolder);
+        }
+
+        File.WriteAllText(outputXmlFilePath, GenerateXmlFileText(inputResxFilePath));
+    }
+
+    private static string GenerateXmlFileText(string inputResxFileName)
+    {
+        var xmlFileTextBuilder = new StringBuilder();
+
+        IDictionary<string, string> items = ResxUtilities.GenerateResources(inputResxFileName);
+
+        xmlFileTextBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+        xmlFileTextBuilder.AppendLine("<resources>");
+
+        foreach (KeyValuePair<string, string> pair in items)
+        {
+            var key = Regex.Replace(pair.Key, "[_A-Z]{1,}", m => m.Index > 0 ? $"_{m.Value.TrimStart('_').ToLower()}" : m.Value.ToLower());
+
+            xmlFileTextBuilder.Append("    <string name=\"");
+            xmlFileTextBuilder.Append(key);
+            xmlFileTextBuilder.Append("\">");
+            xmlFileTextBuilder.Append(pair.Value);
+            xmlFileTextBuilder.AppendLine("</string>");
+        }
+
+        xmlFileTextBuilder.AppendLine("</resources>");
+
+        return xmlFileTextBuilder.ToString();
+    }
+}
+
+public static class ResxUtilities
+{
+    public static IDictionary<string, string> GenerateResources(string resourceName)
+    {
+        var items = new Dictionary<string, string>();
+
+        if (File.Exists(resourceName))
+        {
+            XDocument document = XDocument.Parse(File.ReadAllText(resourceName));
+
+            foreach(var item in document.Element("root").Elements("data"))
+            {
+                string name = EscapeName(item);
+                string value = EscapeValue(item);
+
+                items.Add(name, value);
+            }
+        }
+
+        return items;
+    }
+
+    public static string GetNameSpace(string filename)
+    {
+        string[] words = filename.Replace($".{Path.DirectorySeparatorChar}", "").Split('.');
+        return words[0];
+    }
+
+    public static string GetLocale(string filename)
+    {
+        filename = Path.GetFileName(filename);
+        string[] words = filename.Replace($".{Path.DirectorySeparatorChar}", "").Split('.');
+        return words.Length > 2 ? words[1] : "";
+    }
+
+    public static string EscapeName(XElement item)
+    {
+        string name = item.Attribute("name").Value;
+        return Regex.Replace(name, "[^a-zA-Z0-9_]{1,1}", "_");
+    }
+
+    public static string EscapeValue(XElement item)
+    {
+        XElement vitem = item.Descendants().FirstOrDefault();
+        string name = vitem.Value;
+        name = name.Replace("'", "\\'");
+        return name;
+    }
+}
+#>
