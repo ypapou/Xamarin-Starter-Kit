@@ -35,10 +35,10 @@ namespace Company.App.iOS
             var compositeBootstrapper = new CompositeBootstrapper(
                 new CommonBootstrapper(),
                 new InfrastructureBootstrapper(),
-                new iOSInfrastructureBootstrapper(),
+                new IosInfrastructureBootstrapper(),
                 new ApplicationBootstrapper(),
                 new PresentationBootstrapper(),
-                new iOSBootstrapper());
+                new IosBootstrapper());
             compositeBootstrapper.Execute(config);
 
             Window = new UIWindow(UIScreen.MainScreen.Bounds)

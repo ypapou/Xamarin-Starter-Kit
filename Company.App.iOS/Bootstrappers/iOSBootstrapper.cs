@@ -2,7 +2,7 @@
 
 namespace Company.App.iOS.Bootstrappers
 {
-    public class iOSBootstrapper : IBootstrapper
+    public class IosBootstrapper : IBootstrapper
     {
         public void Execute(BootstrapperConfig config)
         {

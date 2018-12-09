@@ -50,6 +50,7 @@
     <Compile Include="Dialogs\ConfirmDialogFragment.cs" />
     <Compile Include="Dialogs\IAsyncDialogFragment.cs" />
     <Compile Include="Dialogs\UserDialog.cs" />
+    <Compile Include="Http\NativeHttpClientHandlerFactory.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,8 +65,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FlexiMvvm.Essentials.PreRelease">
+      <Version>0.9.7-prerelease</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>27.0.2.1</Version>

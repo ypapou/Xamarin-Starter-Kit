@@ -64,7 +64,7 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bootstrappers\iOSBootstrapper.cs" />
+    <Compile Include="Bootstrappers\IosBootstrapper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
