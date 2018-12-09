@@ -1,8 +1,8 @@
 ﻿using Company.App.Application.Bootstrappers;
 using Company.App.Common.Bootstrappers;
-using Company.App.iOS.Bootstrappers;
-using Company.App.iOS.Views;
 using Company.App.Infrastructure.Bootstrappers;
+using Company.App.Ios.Bootstrappers;
+using Company.App.Ios.Views;
 using Company.App.Presentation.Bootstrappers;
 using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
@@ -11,7 +11,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using UIKit;
 
-namespace Company.App.iOS
+namespace Company.App.Ios
 {
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
@@ -51,5 +51,3 @@ namespace Company.App.iOS
         }
     }
 }
-
-

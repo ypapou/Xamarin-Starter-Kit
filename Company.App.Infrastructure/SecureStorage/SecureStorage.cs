@@ -4,8 +4,8 @@ namespace Company.App.Infrastructure.SecureStorage
 {
     public class SecureStorage : ISecureStorage
     {
-        private static volatile ISecureStorage _instance;
         private static readonly object Lock = new object();
+        private static volatile ISecureStorage _instance;
 
         private SecureStorage()
         {

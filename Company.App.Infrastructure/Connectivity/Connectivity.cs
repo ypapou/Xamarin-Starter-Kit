@@ -6,8 +6,8 @@ namespace Company.App.Infrastructure.Connectivity
 {
     public class Connectivity : IConnectivity
     {
-        private static volatile Connectivity _instance;
         private static readonly object Lock = new object();
+        private static volatile Connectivity _instance;
 
         private Connectivity()
         {

@@ -1,6 +1,6 @@
 ﻿using FlexiMvvm.Bootstrappers;
 
-namespace Company.App.iOS.Bootstrappers
+namespace Company.App.Ios.Bootstrappers
 {
     public class IosBootstrapper : IBootstrapper
     {
