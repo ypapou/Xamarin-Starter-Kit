@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="FlexiMvvm.Lifecycle.PreRelease" Version="0.9.7-prerelease" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.11.0" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.4.859" />
   </ItemGroup>
 
   <ItemGroup>

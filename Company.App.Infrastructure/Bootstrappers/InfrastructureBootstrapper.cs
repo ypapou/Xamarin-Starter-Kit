@@ -2,6 +2,7 @@
 using Company.App.Infrastructure.Connectivity;
 using Company.App.Infrastructure.SecureStorage;
 using FlexiMvvm.Bootstrappers;
+using FlexiMvvm.Ioc;
 
 namespace Company.App.Infrastructure.Bootstrappers
 {
@@ -11,6 +12,11 @@ namespace Company.App.Infrastructure.Bootstrappers
         {
             var simpleIoc = config.GetSimpleIoc();
 
+            SetupDependencies(simpleIoc);
+        }
+
+        private void SetupDependencies(ISimpleIoc simpleIoc)
+        {
             simpleIoc.Register<IConnectivity>(() => Connectivity.Connectivity.Instance);
             simpleIoc.Register<ISecureStorage>(() => SecureStorage.SecureStorage.Instance);
         }

@@ -14,6 +14,11 @@ namespace Company.App.Application.Bootstrappers
         {
             var simpleIoc = config.GetSimpleIoc();
 
+            SetupDependencies(simpleIoc);
+        }
+
+        private void SetupDependencies(ISimpleIoc simpleIoc)
+        {
             simpleIoc.Register<IConnectivityService>(() => new ConnectivityService(simpleIoc.Get<IConnectivity>()), Reuse.Singleton);
             simpleIoc.Register<IUserInteractionService>(() => new UserInteractionService(simpleIoc.Get<IUserDialog>()), Reuse.Singleton);
         }

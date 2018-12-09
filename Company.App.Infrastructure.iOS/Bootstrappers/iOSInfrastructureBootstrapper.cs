@@ -12,6 +12,11 @@ namespace Company.App.Infrastructure.Bootstrappers
         {
             var simpleIoc = config.GetSimpleIoc();
 
+            SetupDependencies(simpleIoc);
+        }
+
+        private void SetupDependencies(ISimpleIoc simpleIoc)
+        {
             simpleIoc.Register<IUserDialog>(() => new UserDialog(), Reuse.Singleton);
             simpleIoc.Register<INativeHttpClientHandlerFactory>(() => new NativeHttpClientHandlerFactory(), Reuse.Singleton);
         }
