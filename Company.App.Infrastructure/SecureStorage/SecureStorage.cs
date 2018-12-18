@@ -1,34 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Company.App.Infrastructure.SecureStorage
 {
-    public class SecureStorage : ISecureStorage
+    public sealed class SecureStorage : ISecureStorage
     {
-        private static readonly object Lock = new object();
-        private static volatile ISecureStorage _instance;
+        private static readonly Lazy<ISecureStorage> LazyInstance = new Lazy<ISecureStorage>(() => new SecureStorage());
 
         private SecureStorage()
         {
         }
 
-        public static ISecureStorage Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    lock (Lock)
-                    {
-                        if (_instance == null)
-                        {
-                            _instance = new SecureStorage();
-                        }
-                    }
-                }
-
-                return _instance;
-            }
-        }
+        public static ISecureStorage Instance => LazyInstance.Value;
 
         public async Task<string> GetAsync(string key)
         {

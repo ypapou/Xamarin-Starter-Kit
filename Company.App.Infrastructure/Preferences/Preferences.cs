@@ -2,7 +2,7 @@
 
 namespace Company.App.Infrastructure.Preferences
 {
-    public class Preferences : IPreferences
+    public sealed class Preferences : IPreferences
     {
         private static readonly Lazy<IPreferences> LazyInstance = new Lazy<IPreferences>(() => new Preferences());
 

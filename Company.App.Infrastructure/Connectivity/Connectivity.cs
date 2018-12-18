@@ -4,10 +4,9 @@ using Xamarin.Essentials;
 
 namespace Company.App.Infrastructure.Connectivity
 {
-    public class Connectivity : IConnectivity
+    public sealed class Connectivity : IConnectivity
     {
-        private static readonly object Lock = new object();
-        private static volatile Connectivity _instance;
+        private static readonly Lazy<IConnectivity> LazyInstance = new Lazy<IConnectivity>(() => new Connectivity());
 
         private Connectivity()
         {
@@ -19,24 +18,7 @@ namespace Company.App.Infrastructure.Connectivity
             remove => Xamarin.Essentials.Connectivity.ConnectivityChanged -= value;
         }
 
-        public static IConnectivity Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    lock (Lock)
-                    {
-                        if (_instance == null)
-                        {
-                            _instance = new Connectivity();
-                        }
-                    }
-                }
-
-                return _instance;
-            }
-        }
+        public static IConnectivity Instance => LazyInstance.Value;
 
         public NetworkAccess NetworkAccess => Xamarin.Essentials.Connectivity.NetworkAccess;
 
