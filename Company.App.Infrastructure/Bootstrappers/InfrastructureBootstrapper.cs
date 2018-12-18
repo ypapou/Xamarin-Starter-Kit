@@ -1,5 +1,6 @@
 ﻿using Company.App.Common.Bootstrappers;
 using Company.App.Infrastructure.Connectivity;
+using Company.App.Infrastructure.Preferences;
 using Company.App.Infrastructure.SecureStorage;
 using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
@@ -19,6 +20,7 @@ namespace Company.App.Infrastructure.Bootstrappers
         {
             simpleIoc.Register<IConnectivity>(() => Connectivity.Connectivity.Instance);
             simpleIoc.Register<ISecureStorage>(() => SecureStorage.SecureStorage.Instance);
+            simpleIoc.Register<IPreferences>(() => Preferences.Preferences.Instance);
         }
     }
 }
