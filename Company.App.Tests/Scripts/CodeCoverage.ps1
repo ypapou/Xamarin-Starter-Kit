@@ -7,18 +7,18 @@
 <#
 
 .SYNOPSIS
-This is a Powershell script to bootstrap a Cake build.
+This is a Powershell script to bootstrap a Cake CodeCoverage.
 
 .DESCRIPTION
 This Powershell script will download NuGet if missing, restore NuGet tools (including Cake)
-and execute your Cake build script with the parameters you provide.
+and execute your Cake CodeCoverage script with the parameters you provide.
 
 .PARAMETER Script
-The build script to execute.
+The CodeCoverage script to execute.
 .PARAMETER Target
-The build script target to run.
+The CodeCoverage script target to run.
 .PARAMETER Configuration
-The build configuration to use.
+The CodeCoverage configuration to use.
 .PARAMETER Verbosity
 Specifies the amount of information to be displayed.
 .PARAMETER ShowDescription
@@ -98,7 +98,7 @@ function GetProxyEnabledWebClient
     return $wc
 }
 
-Write-Host "Preparing to run build script..."
+Write-Host "Preparing to run CodeCoverage script..."
 
 if(!$PSScriptRoot){
     $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
@@ -227,7 +227,7 @@ if (!(Test-Path $CAKE_EXE)) {
 
 
 
-# Build Cake arguments
+# CodeCoverage Cake arguments
 $cakeArguments = @("$Script");
 if ($Target) { $cakeArguments += "-target=$Target" }
 if ($Configuration) { $cakeArguments += "-configuration=$Configuration" }
@@ -237,6 +237,6 @@ if ($DryRun) { $cakeArguments += "-dryrun" }
 $cakeArguments += $ScriptArgs
 
 # Start Cake
-Write-Host "Running build script..."
+Write-Host "Running CodeCoverage script..."
 &$CAKE_EXE $cakeArguments
 exit $LASTEXITCODE
