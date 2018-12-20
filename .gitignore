@@ -21,7 +21,10 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
-[Cc]odeCoverage/
+
+# Code coverage
+[Cc]odeCoverageResults/
+**/Scripts/tools
 
 # Visual Studio 2015 cache/options directory
 .vs/
