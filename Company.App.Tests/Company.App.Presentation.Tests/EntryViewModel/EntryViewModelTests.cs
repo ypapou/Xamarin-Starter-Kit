@@ -8,7 +8,7 @@ namespace Company.App.Presentation.Tests.EntryViewModel
         public void EntryViewModel_SomeTest()
         {
             // Arrange
-            var launcher = new ViewModels.EntryViewModel();
+            var launcher = new ViewModels.EntryViewModel(null);
 
             // Act
 

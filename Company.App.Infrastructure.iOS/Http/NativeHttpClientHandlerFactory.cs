@@ -1,5 +1,5 @@
 ﻿using System.Net.Http;
-using FlexiMvvm.Http;
+using FlexiMvvm.Net.Http;
 
 namespace Company.App.Infrastructure.Http
 {

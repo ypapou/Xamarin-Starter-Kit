@@ -61,11 +61,38 @@ namespace Company.App.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application Name.
+        ///   Looks up a localized string similar to Company App.
         /// </summary>
         public static string App_Name {
             get {
                 return ResourceManager.GetString("App_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 1.
+        /// </summary>
+        public static string BottomTabBar_Item_Template1 {
+            get {
+                return ResourceManager.GetString("BottomTabBar_Item_Template1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 2.
+        /// </summary>
+        public static string BottomTabBar_Item_Template2 {
+            get {
+                return ResourceManager.GetString("BottomTabBar_Item_Template2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 3.
+        /// </summary>
+        public static string BottomTabBar_Item_Template3 {
+            get {
+                return ResourceManager.GetString("BottomTabBar_Item_Template3", resourceCulture);
             }
         }
         
@@ -75,6 +102,78 @@ namespace Company.App.Common.Resources {
         public static string Exception_NoInternetConnection {
             get {
                 return ResourceManager.GetString("Exception_NoInternetConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close side bar menu.
+        /// </summary>
+        public static string SideBar_CloseMenu {
+            get {
+                return ResourceManager.GetString("SideBar_CloseMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open side bar menu.
+        /// </summary>
+        public static string SideBar_OpenMenu {
+            get {
+                return ResourceManager.GetString("SideBar_OpenMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 1.
+        /// </summary>
+        public static string SideBarMenu_Item_Template1 {
+            get {
+                return ResourceManager.GetString("SideBarMenu_Item_Template1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 2.
+        /// </summary>
+        public static string SideBarMenu_Item_Template2 {
+            get {
+                return ResourceManager.GetString("SideBarMenu_Item_Template2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 3.
+        /// </summary>
+        public static string SideBarMenu_Item_Template3 {
+            get {
+                return ResourceManager.GetString("SideBarMenu_Item_Template3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 1.
+        /// </summary>
+        public static string Template1_Title {
+            get {
+                return ResourceManager.GetString("Template1_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 2.
+        /// </summary>
+        public static string Template2_Title {
+            get {
+                return ResourceManager.GetString("Template2_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template 3.
+        /// </summary>
+        public static string Template3_Title {
+            get {
+                return ResourceManager.GetString("Template3_Title", resourceCulture);
             }
         }
         

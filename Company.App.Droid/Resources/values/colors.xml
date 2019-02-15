@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="accent">#FFC107</color>
+    <color name="primary">#03A9F4</color>
+    <color name="primaryDark">#0288D1</color>
+
+    <color name="bottom_tab_bar_background">#03A9F4</color>
+    <color name="bottom_tab_bar_item">#B2CFFF</color>
+    <color name="bottom_tab_bar_item_selected">#FFFFFF</color>
+
+</resources>

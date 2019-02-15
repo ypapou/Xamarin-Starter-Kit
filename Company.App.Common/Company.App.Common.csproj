@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FlexiMvvm.Common.PreRelease" Version="0.9.7-prerelease" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Resources\ResxToXmlFileTransformer.log">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

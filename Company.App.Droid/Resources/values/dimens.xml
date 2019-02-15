@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+    <dimen name="inset1x">8dp</dimen>
+    <dimen name="inset2x">16dp</dimen>
+    <dimen name="inset3x">24dp</dimen>
+    <dimen name="inset4x">32dp</dimen>
+    <dimen name="inset5x">40dp</dimen>
+    <dimen name="inset6x">48dp</dimen>
+    <dimen name="inset7x">56dp</dimen>
+
+</resources>

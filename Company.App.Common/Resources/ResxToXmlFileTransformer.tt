@@ -1,6 +1,6 @@
 ﻿<#
 // =========================================================================
-// Copyright 2018 EPAM Systems, Inc.
+// Copyright 2019 EPAM Systems, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -109,10 +109,8 @@ public static class ResxToXmlFileTransformer
 
         foreach (KeyValuePair<string, string> pair in items)
         {
-            var key = Regex.Replace(pair.Key, "[_A-Z]{1,}", m => m.Index > 0 ? $"_{m.Value.TrimStart('_').ToLower()}" : m.Value.ToLower());
-
             xmlFileTextBuilder.Append("    <string name=\"");
-            xmlFileTextBuilder.Append(key);
+            xmlFileTextBuilder.Append(pair.Key);
             xmlFileTextBuilder.Append("\">");
             xmlFileTextBuilder.Append(pair.Value);
             xmlFileTextBuilder.AppendLine("</string>");

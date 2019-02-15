@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/template1_item"
+        android:icon="@drawable/ic_template1_24"
+        android:title="@string/BottomTabBar_Item_Template1" />
+    <item
+        android:id="@+id/template2_item"
+        android:icon="@drawable/ic_template2_24"
+        android:title="@string/BottomTabBar_Item_Template2" />
+
+    <item
+        android:id="@+id/template3_3tem"
+        android:icon="@drawable/ic_template3_24"
+        android:title="@string/BottomTabBar_Item_Template3" />
+
+</menu>

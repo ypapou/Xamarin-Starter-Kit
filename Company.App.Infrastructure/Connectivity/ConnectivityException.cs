@@ -1,5 +1,5 @@
 ﻿using System;
-using FlexiMvvm;
+using FlexiMvvm.Exceptions;
 
 namespace Company.App.Infrastructure.Connectivity
 {

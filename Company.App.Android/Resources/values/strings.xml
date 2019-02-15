@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Application Name</string>
-    <string name="exception_no_internet_connection">Internet connection is not available.</string>
-    <string name="user_error_dialog_action_ok">OK</string>
-    <string name="user_error_dialog_message_generic">Something went wrong. Please try again later.</string>
-    <string name="user_error_dialog_tile">Error</string>
-</resources>

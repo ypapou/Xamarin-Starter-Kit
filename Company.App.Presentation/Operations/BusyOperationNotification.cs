@@ -10,7 +10,7 @@ namespace Company.App.Presentation.Operations
         {
         }
 
-        protected override void OnStartOperation(OperationContext context)
+        protected override void Show(OperationContext context)
         {
             if (context.Owner is IViewModelWithOperation viewModel)
             {
@@ -18,7 +18,7 @@ namespace Company.App.Presentation.Operations
             }
         }
 
-        protected override void OnFinishOperation(OperationContext context, OperationStatus status, object result)
+        protected override void Hide(OperationContext context, OperationStatus status)
         {
             if (context.Owner is IViewModelWithOperation viewModel && context.GetNotificationsCount<BusyOperationNotification>() == 0)
             {

@@ -118,10 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App_Name" xml:space="preserve">
-    <value>Application Name</value>
+    <value>Company App</value>
+  </data>
+  <data name="BottomTabBar_Item_Template1" xml:space="preserve">
+    <value>Template 1</value>
+  </data>
+  <data name="BottomTabBar_Item_Template2" xml:space="preserve">
+    <value>Template 2</value>
+  </data>
+  <data name="BottomTabBar_Item_Template3" xml:space="preserve">
+    <value>Template 3</value>
   </data>
   <data name="Exception_NoInternetConnection" xml:space="preserve">
     <value>Internet connection is not available.</value>
+  </data>
+  <data name="SideBarMenu_Item_Template1" xml:space="preserve">
+    <value>Template 1</value>
+  </data>
+  <data name="SideBarMenu_Item_Template2" xml:space="preserve">
+    <value>Template 2</value>
+  </data>
+  <data name="SideBarMenu_Item_Template3" xml:space="preserve">
+    <value>Template 3</value>
+  </data>
+  <data name="SideBar_CloseMenu" xml:space="preserve">
+    <value>Close side bar menu</value>
+  </data>
+  <data name="SideBar_OpenMenu" xml:space="preserve">
+    <value>Open side bar menu</value>
+  </data>
+  <data name="Template1_Title" xml:space="preserve">
+    <value>Template 1</value>
+  </data>
+  <data name="Template2_Title" xml:space="preserve">
+    <value>Template 2</value>
+  </data>
+  <data name="Template3_Title" xml:space="preserve">
+    <value>Template 3</value>
   </data>
   <data name="UserError_Dialog_Action_Ok" xml:space="preserve">
     <value>OK</value>

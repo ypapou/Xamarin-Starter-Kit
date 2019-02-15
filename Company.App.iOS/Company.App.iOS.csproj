@@ -64,14 +64,36 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bootstrappers\IosBootstrapper.cs" />
+    <Compile Include="Bootstrappers\InitialBootstrapper.cs" />
+    <Compile Include="Bootstrappers\PlatformBootstrapper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Theme\AppTheme.cs" />
+    <Compile Include="Theme\AppThemeColors.cs" />
+    <Compile Include="Theme\AppThemeDimens.cs" />
+    <Compile Include="Theme\AppThemeImages.cs" />
+    <Compile Include="Theme\AppThemeFonts.cs" />
+    <Compile Include="Theme\AppThemeStyles.cs" />
+    <Compile Include="Theme\Universal\Light\UniversalLightAppTheme.cs" />
+    <Compile Include="Theme\Universal\Light\UniversalLightAppThemeColors.cs" />
+    <Compile Include="ValueConverters\SideBarMenuItemSelectedValueConverter.cs" />
+    <Compile Include="Views\BarButtonItemFactory.cs" />
+    <Compile Include="Views\BottomTabBar\BottomTabBarViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Entitlements.plist" />
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <Compile Include="Navigation\AppNavigationService.cs" />
+    <Compile Include="Views\SideBar\SideBarViewController.cs" />
+    <Compile Include="Views\SideBar\SideBarMenuViewController.cs" />
+    <Compile Include="Views\SideBar\SideBarMenuView.cs" />
+    <Compile Include="Views\Template1\Template1ViewController.cs" />
+    <Compile Include="Views\Template1\Template1View.cs" />
+    <Compile Include="Views\Template3\Template3View.cs" />
+    <Compile Include="Views\Template3\Template3ViewController.cs" />
+    <Compile Include="Views\Template2\Template2View.cs" />
+    <Compile Include="Views\Template2\Template2ViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -122,19 +144,55 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_223.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_223.imageset\logo_223%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_223.imageset\logo_223%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_side_bar_menu_24.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_side_bar_menu_24.imageset\ic_side_bar_menu_24.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_template1_24.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_template1_24.imageset\ic_template1_24.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_template2_24.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_template2_24.imageset\ic_template2_24.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_template3_24.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_template3_24.imageset\ic_template3_24.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FlexiMvvm.Full.PreRelease">
-      <Version>0.9.7-prerelease</Version>
+    <PackageReference Include="FlexiMvvm.FullStack.PreRelease">
+      <Version>$(FlexiMvvmVersion)</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>1.11.0</Version>
+      <Version>1.12.0</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
       <Version>2.4.4.859</Version>
+    </PackageReference>
+    <PackageReference Include="SidebarNavigation">
+      <Version>2.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

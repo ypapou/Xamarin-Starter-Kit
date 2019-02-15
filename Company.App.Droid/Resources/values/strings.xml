@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="App_Name">Company App</string>
+    <string name="BottomTabBar_Item_Template1">Template 1</string>
+    <string name="BottomTabBar_Item_Template2">Template 2</string>
+    <string name="BottomTabBar_Item_Template3">Template 3</string>
+    <string name="Exception_NoInternetConnection">Internet connection is not available.</string>
+    <string name="SideBarMenu_Item_Template1">Template 1</string>
+    <string name="SideBarMenu_Item_Template2">Template 2</string>
+    <string name="SideBarMenu_Item_Template3">Template 3</string>
+    <string name="SideBar_CloseMenu">Close side bar menu</string>
+    <string name="SideBar_OpenMenu">Open side bar menu</string>
+    <string name="Template1_Title">Template 1</string>
+    <string name="Template2_Title">Template 2</string>
+    <string name="Template3_Title">Template 3</string>
+    <string name="UserError_Dialog_Action_Ok">OK</string>
+    <string name="UserError_Dialog_Message_Generic">Something went wrong. Please try again later.</string>
+    <string name="UserError_Dialog_Tile">Error</string>
+</resources>

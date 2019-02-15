@@ -41,7 +41,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrappers\IosInfrastructureBootstrapper.cs" />
+    <Compile Include="Bootstrappers\PlatformInfrastructureBootstrapper.cs" />
     <Compile Include="Dialogs\UserDialog.cs" />
     <Compile Include="Http\NativeHttpClientHandlerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FlexiMvvm.Essentials.PreRelease">
-      <Version>0.9.7-prerelease</Version>
+      <Version>$(FlexiMvvmVersion)</Version>
     </PackageReference>
     <PackageReference Include="System.Net.Http">
       <Version>4.3.4</Version>
