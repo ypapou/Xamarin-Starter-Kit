@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using Android.Support.V4.App;
 
 namespace Company.App.Infrastructure.Dialogs
 {
     internal interface IAsyncDialogFragment
     {
-        Task<bool> ShowAsync(Android.Support.V4.App.FragmentManager manager, string tag);
+        Task<bool> ShowAsync(FragmentManager manager, string tag);
     }
 }

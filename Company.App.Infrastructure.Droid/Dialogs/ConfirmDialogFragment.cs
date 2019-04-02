@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.V4.App;
 
 namespace Company.App.Infrastructure.Dialogs
 {
-    internal class ConfirmDialogFragment : Android.Support.V4.App.DialogFragment, IAsyncDialogFragment
+    internal class ConfirmDialogFragment : DialogFragment, IAsyncDialogFragment
     {
         private const string TitleArgumentKey = "Title";
         private const string MessageArgumentKey = "Message";
@@ -27,14 +27,14 @@ namespace Company.App.Infrastructure.Dialogs
             return fragment;
         }
 
-        public override Dialog OnCreateDialog(Bundle savedInstanceState)
+        public override Android.App.Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             var title = Arguments.GetString(TitleArgumentKey);
             var message = Arguments.GetString(MessageArgumentKey);
             var accept = Arguments.GetString(AcceptArgumentKey);
             var cancel = Arguments.GetString(CancelArgumentKey);
 
-            return new AlertDialog.Builder(Activity)
+            return new Android.App.AlertDialog.Builder(Activity)
                 .SetTitle(title)
                 .SetMessage(message)
                 .SetPositiveButton(accept, OnAcceptButtonClicked)
@@ -42,11 +42,18 @@ namespace Company.App.Infrastructure.Dialogs
                 .Create();
         }
 
-        public Task<bool> ShowAsync(Android.Support.V4.App.FragmentManager manager, string tag)
+        public Task<bool> ShowAsync(FragmentManager manager, string tag)
         {
             Show(manager, tag);
 
             return _taskCompletionSource.Task;
+        }
+
+        public override void OnCancel(IDialogInterface dialog)
+        {
+            base.OnCancel(dialog);
+
+            _taskCompletionSource.SetResult(false);
         }
 
         private void OnAcceptButtonClicked(object sender, DialogClickEventArgs e)
