@@ -7,7 +7,7 @@ using FlexiMvvm.Operations;
 
 namespace Company.App.Presentation.Operations
 {
-    internal class InternetConnectionOperationCondition : OperationConditionBase
+    internal class InternetConnectionOperationCondition : OperationCondition
     {
         public override Task<bool> CheckAsync(OperationContext context, CancellationToken cancellationToken)
         {

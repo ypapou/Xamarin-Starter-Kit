@@ -3,7 +3,7 @@ using FlexiMvvm.Operations;
 
 namespace Company.App.Presentation.Operations
 {
-    public class BusyOperationNotification : OperationNotificationBase
+    public class BusyOperationNotification : OperationNotification
     {
         public BusyOperationNotification(int delay, int minDuration, bool isCancelable)
             : base(delay, minDuration, isCancelable)
@@ -20,7 +20,7 @@ namespace Company.App.Presentation.Operations
 
         protected override void Hide(OperationContext context, OperationStatus status)
         {
-            if (context.Owner is IViewModelWithOperation viewModel && context.GetNotificationsCount<BusyOperationNotification>() == 0)
+            if (context.Owner is IViewModelWithOperation viewModel && context.Shared.GetNotificationCount<BusyOperationNotification>() == 0)
             {
                 viewModel.IsBusy = false;
             }
