@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
-using Android.Support.V4.App;
-using Plugin.CurrentActivity;
+﻿using System.Threading.Tasks;
+using Company.App.Infrastructure.Views;
 
 namespace Company.App.Infrastructure.Dialogs
 {
@@ -11,30 +9,18 @@ namespace Company.App.Infrastructure.Dialogs
 
         public async Task AlertAsync(string title, string message, string accept)
         {
+            var fragmentManager = ViewProvider.GetCurrentActivity().SupportFragmentManager;
             var alertDialogFragment = AlertDialogFragment.NewInstance(title, message, accept);
 
-            await ShowDialog(alertDialogFragment);
+            await alertDialogFragment.ShowAsync(fragmentManager, DialogFragmentTag);
         }
 
         public async Task<bool> ConfirmAsync(string title, string message, string accept, string cancel)
         {
+            var fragmentManager = ViewProvider.GetCurrentActivity().SupportFragmentManager;
             var confirmDialogFragment = ConfirmDialogFragment.NewInstance(title, message, accept, cancel);
 
-            return await ShowDialog(confirmDialogFragment);
-        }
-
-        private Task<bool> ShowDialog(IAsyncDialogFragment dialogFragment)
-        {
-            var currentActivity = CrossCurrentActivity.Current.Activity;
-
-            if (currentActivity is FragmentActivity fragmentActivity)
-            {
-                return dialogFragment.ShowAsync(fragmentActivity.SupportFragmentManager, DialogFragmentTag);
-            }
-            else
-            {
-                throw new InvalidOperationException($"\"{nameof(UserDialog)}\" works only with \"{nameof(FragmentActivity)}\" activity instances.");
-            }
+            return await confirmDialogFragment.ShowAsync(fragmentManager, DialogFragmentTag);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Company.App.Infrastructure.Views;
 using UIKit;
 
 namespace Company.App.Infrastructure.Dialogs
@@ -11,8 +12,8 @@ namespace Company.App.Infrastructure.Dialogs
             var alertController = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
             alertController.AddAction(UIAlertAction.Create(accept, UIAlertActionStyle.Default, alertAction => taskCompletionSource.SetResult(true)));
 
-            var topViewController = GetTopViewController();
-            topViewController.PresentViewController(alertController, true, null);
+            var currentViewController = ViewProvider.GetCurrentViewController();
+            currentViewController.PresentViewController(alertController, true, null);
 
             return taskCompletionSource.Task;
         }
@@ -24,15 +25,10 @@ namespace Company.App.Infrastructure.Dialogs
             confirmController.AddAction(UIAlertAction.Create(accept, UIAlertActionStyle.Default, alertAction => taskCompletionSource.SetResult(true)));
             confirmController.AddAction(UIAlertAction.Create(cancel, UIAlertActionStyle.Default, alertAction => taskCompletionSource.SetResult(false)));
 
-            var topViewController = GetTopViewController();
-            topViewController.PresentViewController(confirmController, true, null);
+            var currentViewController = ViewProvider.GetCurrentViewController();
+            currentViewController.PresentViewController(confirmController, true, null);
 
             return taskCompletionSource.Task;
-        }
-
-        private UIViewController GetTopViewController()
-        {
-            return UIApplication.SharedApplication.KeyWindow.RootViewController;
         }
     }
 }
