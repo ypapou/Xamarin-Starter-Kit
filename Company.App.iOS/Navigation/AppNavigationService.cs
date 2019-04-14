@@ -14,9 +14,9 @@ namespace Company.App.Ios.Navigation
 {
     public class AppNavigationService : NavigationService, INavigationService
     {
-        public void NavigateToHome(IViewModel fromViewModel)
+        public void NavigateToHome(ILifecycleViewModel fromViewModel)
         {
-            var fromView = GetView(fromViewModel);
+            var fromView = NavigationViewProvider.Get(fromViewModel);
             var toView = new SideBarViewController();
 
             Navigate(fromView, toView, true);
@@ -24,7 +24,7 @@ namespace Company.App.Ios.Navigation
 
         public void NavigateToTemplate1(SideBarViewModel fromViewModel, bool isDefault)
         {
-            var hostView = GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
             var contentView = new Template1ViewController();
 
             hostView.SetContent(contentView);
@@ -32,7 +32,7 @@ namespace Company.App.Ios.Navigation
 
         public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel)
         {
-            var hostView = GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
             Func<Template1ViewController> contentViewFactory = () => new Template1ViewController();
 
             hostView.SetContent(hostView.Template1NavigationController, contentViewFactory);
@@ -40,7 +40,7 @@ namespace Company.App.Ios.Navigation
 
         public void NavigateToTemplate2(SideBarViewModel fromViewModel, bool isDefault)
         {
-            var hostView = GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
             var contentView = new Template2ViewController();
 
             hostView.SetContent(contentView);
@@ -48,7 +48,7 @@ namespace Company.App.Ios.Navigation
 
         public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel)
         {
-            var hostView = GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
             Func<Template2ViewController> contentViewFactory = () => new Template2ViewController();
 
             hostView.SetContent(hostView.Template2NavigationController, contentViewFactory);
@@ -56,7 +56,7 @@ namespace Company.App.Ios.Navigation
 
         public void NavigateToTemplate3(SideBarViewModel fromViewModel, bool isDefault)
         {
-            var hostView = GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
             var contentView = new Template3ViewController();
 
             hostView.SetContent(contentView);
@@ -64,7 +64,7 @@ namespace Company.App.Ios.Navigation
 
         public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel)
         {
-            var hostView = GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
             Func<Template3ViewController> contentViewFactory = () => new Template3ViewController();
 
             hostView.SetContent(hostView.Template3NavigationController, contentViewFactory);

@@ -6,7 +6,7 @@ namespace Company.App.Presentation.Navigation
 {
     public interface INavigationService
     {
-        void NavigateToHome(IViewModel fromViewModel);
+        void NavigateToHome(ILifecycleViewModel fromViewModel);
 
         void NavigateToTemplate1(SideBarViewModel fromViewModel, bool isDefault);
 

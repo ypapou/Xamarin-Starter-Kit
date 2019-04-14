@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <FlexiMvvmVersion>0.10.6-prerelease</FlexiMvvmVersion>
+    <FlexiMvvmVersion>0.10.7-prerelease</FlexiMvvmVersion>
     <FlexiMvvmGenerationPath>$(NuGetPackageRoot)FlexiMvvm.Generation.Prerelease\$(FlexiMvvmVersion)\lib\netstandard2.0</FlexiMvvmGenerationPath>
   </PropertyGroup>
 

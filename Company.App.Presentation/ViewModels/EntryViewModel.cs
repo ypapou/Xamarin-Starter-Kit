@@ -3,7 +3,7 @@ using FlexiMvvm.ViewModels;
 
 namespace Company.App.Presentation.ViewModels
 {
-    public class EntryViewModel : ViewModel
+    public class EntryViewModel : LifecycleViewModel
     {
         private readonly INavigationService _navigationService;
 
@@ -12,11 +12,14 @@ namespace Company.App.Presentation.ViewModels
             _navigationService = navigationService;
         }
 
-        public override void Initialize()
+        public override void Initialize(bool recreated)
         {
-            base.Initialize();
+            base.Initialize(recreated);
 
-            _navigationService.NavigateToHome(this);
+            if (!recreated)
+            {
+                _navigationService.NavigateToHome(this);
+            }
         }
     }
 }

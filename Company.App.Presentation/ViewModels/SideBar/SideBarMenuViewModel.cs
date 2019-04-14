@@ -1,10 +1,9 @@
 ﻿using FlexiMvvm.Commands;
-/* using FlexiMvvm.Diagnostics; */
 using FlexiMvvm.ViewModels;
 
 namespace Company.App.Presentation.ViewModels.SideBar
 {
-    public class SideBarMenuViewModel : ViewModel
+    public class SideBarMenuViewModel : LifecycleViewModel
     {
         private const SideBarMenuItem DefaultItem = SideBarMenuItem.Template1;
 
@@ -19,17 +18,20 @@ namespace Company.App.Presentation.ViewModels.SideBar
 
         public SideBarMenuItem SelectedItem
         {
-            get => State.GetEnum(SideBarMenuItem.None);
+            get => State.GetEnum(defaultValue: SideBarMenuItem.None);
             private set => State.SetEnum(value);
         }
 
         public Command<SideBarMenuItem> NavigateToItemCommand => CommandProvider.Get<SideBarMenuItem>(NavigateToItem);
 
-        public override void Initialize()
+        public override void Initialize(bool recreated)
         {
-            base.Initialize();
+            base.Initialize(recreated);
 
-            NavigateToItem(DefaultItem);
+            if (!recreated)
+            {
+                NavigateToItem(DefaultItem);
+            }
         }
 
         private void NavigateToItem(SideBarMenuItem item)
