@@ -12,7 +12,7 @@ namespace Company.App.Presentation.Operations
 
         protected override void Show(OperationContext context)
         {
-            if (context.Owner is IViewModelWithOperation viewModel)
+            if (context.Owner is IViewModelWithBusyStatus viewModel)
             {
                 viewModel.IsBusy = true;
             }
@@ -20,7 +20,7 @@ namespace Company.App.Presentation.Operations
 
         protected override void Hide(OperationContext context, OperationStatus status)
         {
-            if (context.Owner is IViewModelWithOperation viewModel && context.Shared.GetNotificationCount<BusyOperationNotification>() == 0)
+            if (context.Owner is IViewModelWithBusyStatus viewModel && context.Shared.GetNotificationCount<BusyOperationNotification>() == 0)
             {
                 viewModel.IsBusy = false;
             }
