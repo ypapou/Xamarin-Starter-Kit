@@ -1,7 +1,7 @@
 ﻿using System;
 using Company.App.Presentation.ViewModels.SideBar;
 using FlexiMvvm;
-using FlexiMvvm.Interactions;
+using FlexiMvvm.ViewModels;
 using FlexiMvvm.Views;
 using SidebarNavigation;
 using UIKit;

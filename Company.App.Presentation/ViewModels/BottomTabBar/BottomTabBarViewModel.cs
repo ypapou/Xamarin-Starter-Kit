@@ -4,7 +4,7 @@ using FlexiMvvm.ViewModels;
 
 namespace Company.App.Presentation.ViewModels.BottomTabBar
 {
-    public class BottomTabBarViewModel : ViewModel
+    public class BottomTabBarViewModel : LifecycleViewModel
     {
         private const BottomTabBarItem DefaultItem = BottomTabBarItem.Template1;
 
@@ -17,17 +17,20 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
 
         public BottomTabBarItem SelectedItem
         {
-            get => State.GetEnum(BottomTabBarItem.None);
+            get => State.GetEnum(defaultValue: BottomTabBarItem.None);
             private set => State.SetEnum(value);
         }
 
         public Command<BottomTabBarItem> NavigateToItemCommand => CommandProvider.Get<BottomTabBarItem>(NavigateToItem, CanNavigateToItem);
 
-        public override void Initialize()
+        public override void Initialize(bool recreated)
         {
-            base.Initialize();
+            base.Initialize(recreated);
 
-            NavigateToItem(DefaultItem);
+            if (!recreated)
+            {
+                NavigateToItem(DefaultItem);
+            }
         }
 
         private void NavigateToItem(BottomTabBarItem item)

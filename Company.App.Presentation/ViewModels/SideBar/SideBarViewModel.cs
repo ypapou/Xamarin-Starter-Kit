@@ -1,11 +1,10 @@
 ﻿using Company.App.Presentation.Navigation;
 using FlexiMvvm.Commands;
-using FlexiMvvm.Interactions;
 using FlexiMvvm.ViewModels;
 
 namespace Company.App.Presentation.ViewModels.SideBar
 {
-    public class SideBarViewModel : ViewModel
+    public class SideBarViewModel : LifecycleViewModel
     {
         private readonly INavigationService _navigationService;
         private readonly ISideBarNavigationMediator _sideBarNavigationMediator;

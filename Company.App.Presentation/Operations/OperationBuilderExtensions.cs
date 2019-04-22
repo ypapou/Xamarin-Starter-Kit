@@ -17,5 +17,14 @@ namespace Company.App.Presentation.Operations
         {
             return builder.WithNotification(new BusyOperationNotification(delay, minDuration, isCancellable));
         }
+
+        public static IOperationBuilder WithRefreshNotification(
+            this IOperationBuilder builder,
+            int delay = 0,
+            int minDuration = 0,
+            bool isCancellable = false)
+        {
+            return builder.WithNotification(new RefreshOperationNotification(delay, minDuration, isCancellable));
+        }
     }
 }

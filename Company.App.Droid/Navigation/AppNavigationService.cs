@@ -13,16 +13,16 @@ namespace Company.App.Droid.Navigation
 {
     public class AppNavigationService : NavigationService, INavigationService
     {
-        public void NavigateToHome(IViewModel fromViewModel)
+        public void NavigateToHome(ILifecycleViewModel fromViewModel)
         {
-            var fromView = GetView(fromViewModel);
+            var fromView = NavigationViewProvider.Get(fromViewModel);
 
             Navigate<SideBarActivity>(fromView);
         }
 
         public void NavigateToTemplate1(SideBarViewModel fromViewModel, bool isDefault)
         {
-            var hostView = GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
             var contentView = Template1Fragment.NewInstance();
 
             hostView.SetContent(contentView, isDefault);
@@ -30,7 +30,7 @@ namespace Company.App.Droid.Navigation
 
         public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel)
         {
-            var hostView = GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
             var contentView = Template1Fragment.NewInstance();
 
             hostView.SetContent(contentView);
@@ -38,7 +38,7 @@ namespace Company.App.Droid.Navigation
 
         public void NavigateToTemplate2(SideBarViewModel fromViewModel, bool isDefault)
         {
-            var hostView = GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
             var contentView = Template2Fragment.NewInstance();
 
             hostView.SetContent(contentView, isDefault);
@@ -46,7 +46,7 @@ namespace Company.App.Droid.Navigation
 
         public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel)
         {
-            var hostView = GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
             var contentView = Template2Fragment.NewInstance();
 
             hostView.SetContent(contentView);
@@ -54,7 +54,7 @@ namespace Company.App.Droid.Navigation
 
         public void NavigateToTemplate3(SideBarViewModel fromViewModel, bool isDefault)
         {
-            var hostView = GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
             var contentView = Template3Fragment.NewInstance();
 
             hostView.SetContent(contentView, isDefault);
@@ -62,7 +62,7 @@ namespace Company.App.Droid.Navigation
 
         public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel)
         {
-            var hostView = GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
+            var hostView = NavigationViewProvider.GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
             var contentView = Template3Fragment.NewInstance();
 
             hostView.SetContent(contentView);

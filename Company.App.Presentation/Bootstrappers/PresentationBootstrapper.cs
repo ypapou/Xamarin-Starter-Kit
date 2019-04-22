@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using Company.App.Common.Bootstrappers;
 using Company.App.Infrastructure.Http;
 using Company.App.Presentation.Navigation;
@@ -26,7 +27,7 @@ namespace Company.App.Presentation.Bootstrappers
 
             SetupDependencies(simpleIoc);
             SetupViewModels(simpleIoc);
-            SetupViewModelProvider(simpleIoc);
+            SetupLifecycleViewModelProvider(simpleIoc);
         }
 
         private void SetupDependencies(ISimpleIoc simpleIoc)
@@ -47,9 +48,9 @@ namespace Company.App.Presentation.Bootstrappers
             simpleIoc.Register(() => new Template3ViewModel());
         }
 
-        private void SetupViewModelProvider(IDependencyProvider dependencyProvider)
+        private void SetupLifecycleViewModelProvider(IServiceProvider serviceProvider)
         {
-            ViewModelProvider.SetFactory(new DependencyProviderViewModelFactory(dependencyProvider));
+            LifecycleViewModelProvider.SetFactory(new DefaultLifecycleViewModelFactory(serviceProvider));
         }
 
         private IImageService CreateImageService(IDependencyProvider dependencyProvider)

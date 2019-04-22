@@ -6,7 +6,7 @@ using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Company.App.Presentation.ViewModels.SideBar;
-using FlexiMvvm.Interactions;
+using FlexiMvvm.ViewModels;
 using FlexiMvvm.Views;
 using Fragment = FlexiMvvm.Views.Fragment;
 
