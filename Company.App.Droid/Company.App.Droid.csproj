@@ -59,6 +59,7 @@
     <Compile Include="Bootstrappers\PlatformBootstrapper.cs" />
     <Compile Include="Bootstrappers\InitialBootstrapper.cs" />
     <Compile Include="Navigation\AppNavigationService.cs" />
+    <Compile Include="Navigation\ForwardNavigationStrategyExtensions.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverters\BottomTabBarItemValueConverter.cs" />
