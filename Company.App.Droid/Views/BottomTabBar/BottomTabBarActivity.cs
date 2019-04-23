@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
@@ -13,7 +14,7 @@ namespace Company.App.Droid.Views.BottomTabBar
     [Activity]
     public class BottomTabBarActivity : BindableAppCompatActivity<BottomTabBarViewModel>
     {
-        private BottomNavigationView _bottomNavigationView;
+        private BottomNavigationView BottomNavigationView { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -23,31 +24,42 @@ namespace Company.App.Droid.Views.BottomTabBar
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
-            _bottomNavigationView = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation_view);
+            BottomNavigationView = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation_view);
+
+            SupportFragmentManager.BackStackChangedWeakSubscribe(SupportFragmentManager_BackStackChanged);
         }
 
         public override void Bind(BindingSet<BottomTabBarViewModel> bindingSet)
         {
             base.Bind(bindingSet);
 
-            bindingSet.Bind(_bottomNavigationView)
+            bindingSet.Bind(BottomNavigationView)
                 .For(v => v.SelectedItemIdBinding())
                 .To(vm => vm.SelectedItem)
-                .WithConversion<BottomTabBarItemValueConverter>()
-                .OneTime();
+                .WithConversion<BottomTabBarItemValueConverter>();
 
-            bindingSet.Bind(_bottomNavigationView)
+            bindingSet.Bind(BottomNavigationView)
                 .For(v => v.NavigationItemSelectedBinding())
                 .To(vm => vm.NavigateToItemCommand)
                 .WithConversion<BottomTabBarItemValueConverter>();
         }
 
-        public void SetContent(Fragment fragment)
+        public void SetContent(Fragment fragment, bool isDefault)
         {
+            SupportFragmentManager.PopBackStack();
             SupportFragmentManager
                 .BeginTransaction()
                 .Replace(Resource.Id.content_frame, fragment)
+                .AddToBackStackIf(!isDefault, null)
                 .Commit();
+        }
+
+        private void SupportFragmentManager_BackStackChanged(object sender, EventArgs e)
+        {
+            if (SupportFragmentManager.BackStackEntryCount == 0)
+            {
+                ViewModel.SelectDefaultItemCommand.Execute();
+            }
         }
     }
 }

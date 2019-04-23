@@ -23,6 +23,8 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
 
         public Command<BottomTabBarItem> NavigateToItemCommand => CommandProvider.Get<BottomTabBarItem>(NavigateToItem, CanNavigateToItem);
 
+        public Command SelectDefaultItemCommand => CommandProvider.Get(SelectDefaultItem);
+
         public override void Initialize(bool recreated)
         {
             base.Initialize(recreated);
@@ -35,18 +37,20 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
 
         private void NavigateToItem(BottomTabBarItem item)
         {
+            var isDefaultItem = item == DefaultItem;
+
             switch (item)
             {
                 case BottomTabBarItem.Template1:
-                    _navigationService.NavigateToTemplate1(this);
+                    _navigationService.NavigateToTemplate1(this, isDefaultItem);
                     SelectedItem = item;
                     break;
                 case BottomTabBarItem.Template2:
-                    _navigationService.NavigateToTemplate2(this);
+                    _navigationService.NavigateToTemplate2(this, isDefaultItem);
                     SelectedItem = item;
                     break;
                 case BottomTabBarItem.Template3:
-                    _navigationService.NavigateToTemplate3(this);
+                    _navigationService.NavigateToTemplate3(this, isDefaultItem);
                     SelectedItem = item;
                     break;
                 default:
@@ -58,6 +62,11 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
         private bool CanNavigateToItem(BottomTabBarItem item)
         {
             return item != SelectedItem && item != BottomTabBarItem.None;
+        }
+
+        private void SelectDefaultItem()
+        {
+            SelectedItem = DefaultItem;
         }
     }
 }

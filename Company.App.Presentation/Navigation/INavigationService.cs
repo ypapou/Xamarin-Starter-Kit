@@ -10,14 +10,14 @@ namespace Company.App.Presentation.Navigation
 
         void NavigateToTemplate1(SideBarViewModel fromViewModel, bool isDefault);
 
-        void NavigateToTemplate1(BottomTabBarViewModel fromViewModel);
+        void NavigateToTemplate1(BottomTabBarViewModel fromViewModel, bool isDefault);
 
         void NavigateToTemplate2(SideBarViewModel fromViewModel, bool isDefault);
 
-        void NavigateToTemplate2(BottomTabBarViewModel fromViewModel);
+        void NavigateToTemplate2(BottomTabBarViewModel fromViewModel, bool isDefault);
 
         void NavigateToTemplate3(SideBarViewModel fromViewModel, bool isDefault);
 
-        void NavigateToTemplate3(BottomTabBarViewModel fromViewModel);
+        void NavigateToTemplate3(BottomTabBarViewModel fromViewModel, bool isDefault);
     }
 }

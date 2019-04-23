@@ -30,7 +30,7 @@ namespace Company.App.Ios.Navigation
             hostView.SetContent(contentView);
         }
 
-        public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel)
+        public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel, bool isDefault)
         {
             var hostView = NavigationViewProvider.GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
             Func<Template1ViewController> contentViewFactory = () => new Template1ViewController();
@@ -46,7 +46,7 @@ namespace Company.App.Ios.Navigation
             hostView.SetContent(contentView);
         }
 
-        public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel)
+        public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel, bool isDefault)
         {
             var hostView = NavigationViewProvider.GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
             Func<Template2ViewController> contentViewFactory = () => new Template2ViewController();
@@ -62,7 +62,7 @@ namespace Company.App.Ios.Navigation
             hostView.SetContent(contentView);
         }
 
-        public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel)
+        public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel, bool isDefault)
         {
             var hostView = NavigationViewProvider.GetViewController<BottomTabBarViewController, BottomTabBarViewModel>(fromViewModel);
             Func<Template3ViewController> contentViewFactory = () => new Template3ViewController();
