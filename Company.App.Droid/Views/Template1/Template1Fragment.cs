@@ -5,7 +5,7 @@ using FlexiMvvm.Views;
 
 namespace Company.App.Droid.Views.Template1
 {
-    public class Template1Fragment : Fragment<Template1ViewModel>
+    public class Template1Fragment : BindableFragment<Template1ViewModel>
     {
         public static Template1Fragment NewInstance()
         {

@@ -13,7 +13,7 @@ using Fragment = FlexiMvvm.Views.Fragment;
 namespace Company.App.Droid.Views.SideBar
 {
     [Activity]
-    public class SideBarActivity : BindableAppCompatActivity<SideBarViewModel>
+    public class SideBarActivity : AppCompatActivity<SideBarViewModel>
     {
         private DrawerLayout _drawerLayout;
 

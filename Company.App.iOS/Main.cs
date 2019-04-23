@@ -6,9 +6,7 @@ namespace Company.App.Ios
     [SuppressMessage(
         "StyleCop.CSharp.DocumentationRules",
         "SA1649:File name must match first type name",
-        Justification = "This is default file name.",
-        Scope = "type",
-        Target = "~T:Company.App.Ios.Application")]
+        Justification = "This is the default file name.")]
     public class Application
     {
         // This is the main entry point of the application.

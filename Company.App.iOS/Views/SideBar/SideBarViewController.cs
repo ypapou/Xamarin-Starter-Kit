@@ -34,7 +34,7 @@ namespace Company.App.Ios.Views.SideBar
             ViewModel.CloseMenuInteraction.RequestedWeakSubscribe(CloseMenuInteraction_Requested);
         }
 
-        public void SetContent(UIViewController viewController)
+        public void SetContent(ViewController viewController)
         {
             _contentNavigationController.PopToRootViewController(false);
             _contentNavigationController.PushViewController(viewController, false);

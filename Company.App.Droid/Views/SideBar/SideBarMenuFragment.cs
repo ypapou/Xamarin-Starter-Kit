@@ -10,13 +10,13 @@ namespace Company.App.Droid.Views.SideBar
 {
     public class SideBarMenuFragment : BindableFragment<SideBarMenuViewModel>
     {
-        private NavigationView _navigationView;
+        private NavigationView NavigationView { get; set; }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.side_bar_menu, container, false);
 
-            _navigationView = view.FindViewById<NavigationView>(Resource.Id.navigation_view);
+            NavigationView = view.FindViewById<NavigationView>(Resource.Id.navigation_view);
 
             return view;
         }
@@ -25,12 +25,12 @@ namespace Company.App.Droid.Views.SideBar
         {
             base.Bind(bindingSet);
 
-            bindingSet.Bind(_navigationView)
+            bindingSet.Bind(NavigationView)
                 .For(v => v.SetCheckedItemBinding())
                 .To(vm => vm.SelectedItem)
                 .WithConversion<SideBarMenuItemValueConverter>();
 
-            bindingSet.Bind(_navigationView)
+            bindingSet.Bind(NavigationView)
                 .For(v => v.NavigationItemSelectedBinding())
                 .To(vm => vm.NavigateToItemCommand)
                 .WithConversion<SideBarMenuItemValueConverter>();
