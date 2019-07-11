@@ -1,4 +1,20 @@
-﻿using Company.App.Presentation.Navigation;
+﻿// =========================================================================
+// Copyright 2019 EPAM Systems, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// =========================================================================
+
+using Company.App.Presentation.Navigation;
 using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
 
@@ -6,8 +22,6 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
 {
     public class BottomTabBarViewModel : LifecycleViewModel
     {
-        private const BottomTabBarItem DefaultItem = BottomTabBarItem.Template1;
-
         private readonly INavigationService _navigationService;
 
         public BottomTabBarViewModel(INavigationService navigationService)
@@ -15,15 +29,15 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
             _navigationService = navigationService;
         }
 
+        public BottomTabBarItem DefaultItem { get; } = BottomTabBarItem.Template1;
+
         public BottomTabBarItem SelectedItem
         {
-            get => State.GetEnum(defaultValue: BottomTabBarItem.None);
-            private set => State.SetEnum(value);
+            get => State.GetEnum<BottomTabBarItem>();
+            set => State.SetEnum(value);
         }
 
         public Command<BottomTabBarItem> NavigateToItemCommand => CommandProvider.Get<BottomTabBarItem>(NavigateToItem, CanNavigateToItem);
-
-        public Command SelectDefaultItemCommand => CommandProvider.Get(SelectDefaultItem);
 
         public override void Initialize(bool recreated)
         {
@@ -37,36 +51,26 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
 
         private void NavigateToItem(BottomTabBarItem item)
         {
-            var isDefaultItem = item == DefaultItem;
-
             switch (item)
             {
                 case BottomTabBarItem.Template1:
-                    _navigationService.NavigateToTemplate1(this, isDefaultItem);
-                    SelectedItem = item;
+                    _navigationService.NavigateToTemplate1(this);
                     break;
                 case BottomTabBarItem.Template2:
-                    _navigationService.NavigateToTemplate2(this, isDefaultItem);
-                    SelectedItem = item;
+                    _navigationService.NavigateToTemplate2(this);
                     break;
                 case BottomTabBarItem.Template3:
-                    _navigationService.NavigateToTemplate3(this, isDefaultItem);
-                    SelectedItem = item;
+                    _navigationService.NavigateToTemplate3(this);
                     break;
                 default:
-                    /* DiagnosticLogger.NonCriticalIssue($"'{item}' side bar menu item is not handled."); */
+                    /* Do logging */
                     break;
             }
         }
 
         private bool CanNavigateToItem(BottomTabBarItem item)
         {
-            return item != SelectedItem && item != BottomTabBarItem.None;
-        }
-
-        private void SelectDefaultItem()
-        {
-            SelectedItem = DefaultItem;
+            return item != SelectedItem;
         }
     }
 }

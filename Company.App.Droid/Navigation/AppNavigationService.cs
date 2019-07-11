@@ -28,12 +28,12 @@ namespace Company.App.Droid.Navigation
             hostView.SetContent(contentView, isDefault);
         }
 
-        public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel)
         {
             var hostView = NavigationViewProvider.GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
             var contentView = Template1Fragment.NewInstance();
 
-            hostView.SetContent(contentView, isDefault);
+            hostView.SetRootContent(contentView, BottomTabBarItem.Template1);
         }
 
         public void NavigateToTemplate2(SideBarViewModel fromViewModel, bool isDefault)
@@ -44,12 +44,12 @@ namespace Company.App.Droid.Navigation
             hostView.SetContent(contentView, isDefault);
         }
 
-        public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel)
         {
             var hostView = NavigationViewProvider.GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
             var contentView = Template2Fragment.NewInstance();
 
-            hostView.SetContent(contentView, isDefault);
+            hostView.SetRootContent(contentView, BottomTabBarItem.Template2);
         }
 
         public void NavigateToTemplate3(SideBarViewModel fromViewModel, bool isDefault)
@@ -60,12 +60,12 @@ namespace Company.App.Droid.Navigation
             hostView.SetContent(contentView, isDefault);
         }
 
-        public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel)
         {
             var hostView = NavigationViewProvider.GetActivity<BottomTabBarActivity, BottomTabBarViewModel>(fromViewModel);
             var contentView = Template3Fragment.NewInstance();
 
-            hostView.SetContent(contentView, isDefault);
+            hostView.SetRootContent(contentView, BottomTabBarItem.Template3);
         }
     }
 }

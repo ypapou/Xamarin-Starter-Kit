@@ -12,7 +12,7 @@
         android:title="@string/BottomTabBar_Item_Template2" />
 
     <item
-        android:id="@+id/template3_3tem"
+        android:id="@+id/template3_item"
         android:icon="@drawable/ic_template3_24"
         android:title="@string/BottomTabBar_Item_Template3" />
 

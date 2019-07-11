@@ -6,66 +6,82 @@ using Company.App.Presentation.ViewModels.BottomTabBar;
 using FlexiMvvm.Views;
 using UIKit;
 
-namespace Company.App.Ios.Views.BottomBar
+namespace Company.App.Ios.Views.BottomTabBar
 {
     public class BottomTabBarViewController : BindableTabBarController<BottomTabBarViewModel>
     {
-        public NavigationController Template1NavigationController { get; private set; }
-
-        public NavigationController Template2NavigationController { get; private set; }
-
-        public NavigationController Template3NavigationController { get; private set; }
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            Template1NavigationController = new NavigationController
+            var template1NavigationController = new NavigationController
             {
-                TabBarItem = new UITabBarItem(Strings.BottomTabBar_Item_Template1, AppTheme.Current.Images.GetTemplate1Icon24(), 1)
+                TabBarItem = new UITabBarItem(
+                    Strings.BottomTabBar_Item_Template1,
+                    AppTheme.Current.Images.GetTemplate1Icon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal),
+                    AppTheme.Current.Images.GetTemplate1SelectedIcon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal))
             };
 
-            Template2NavigationController = new NavigationController()
+            var template2NavigationController = new NavigationController
             {
-                TabBarItem = new UITabBarItem(Strings.BottomTabBar_Item_Template2, AppTheme.Current.Images.GetTemplate2Icon24(), 2)
+                TabBarItem = new UITabBarItem(
+                    Strings.BottomTabBar_Item_Template2,
+                    AppTheme.Current.Images.GetTemplate2Icon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal),
+                    AppTheme.Current.Images.GetTemplate2SelectedIcon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal))
             };
 
-            Template3NavigationController = new NavigationController()
+            var template3NavigationController = new NavigationController
             {
-                TabBarItem = new UITabBarItem(Strings.BottomTabBar_Item_Template3, AppTheme.Current.Images.GetTemplate3Icon24(), 3)
+                TabBarItem = new UITabBarItem(
+                    Strings.BottomTabBar_Item_Template3,
+                    AppTheme.Current.Images.GetTemplate3Icon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal),
+                    AppTheme.Current.Images.GetTemplate3SelectedIcon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal))
             };
 
-            ViewControllers = new[]
+            ViewControllers = new UIViewController[]
             {
-                Template1NavigationController,
-                Template2NavigationController,
-                Template3NavigationController
+                template1NavigationController,
+                template2NavigationController,
+                template3NavigationController
             };
 
             ShouldSelectViewController = ShouldSetContent;
             this.ViewControllerSelectedWeakSubscribe(BottomTabBarViewController_ViewControllerSelected);
         }
 
-        public void SetContent(NavigationController tabNavigationController, Func<ViewController> tabContentViewControllerFactory)
+        public void SetRootContent(Func<ViewController> tabContentViewControllerFactory, BottomTabBarItem item)
         {
+            var tabNavigationController = (UINavigationController)GetTabViewController(item);
+
             if (!tabNavigationController.ViewControllers.Any())
             {
                 tabNavigationController.PushViewController(tabContentViewControllerFactory(), false);
             }
 
             SelectedViewController = tabNavigationController;
+            ViewModel.SelectedItem = item;
         }
 
         private bool ShouldSetContent(UITabBarController tabBarController, UIViewController viewController)
         {
-            var item = (BottomTabBarItem)Array.IndexOf(ViewControllers, viewController);
+            var item = GetBottomTabBarItem(viewController);
 
             return ViewModel.NavigateToItemCommand.CanExecute(item);
         }
 
+        private UIViewController GetTabViewController(BottomTabBarItem item)
+        {
+            return ViewControllers[(int)item];
+        }
+
+        private BottomTabBarItem GetBottomTabBarItem(UIViewController viewController)
+        {
+            return (BottomTabBarItem)Array.IndexOf(ViewControllers, viewController);
+        }
+
         private void BottomTabBarViewController_ViewControllerSelected(object sender, UITabBarSelectionEventArgs e)
         {
-            var item = (BottomTabBarItem)Array.IndexOf(ViewControllers, e.ViewController);
+            var item = GetBottomTabBarItem(e.ViewController);
 
             ViewModel.NavigateToItemCommand.Execute(item);
         }
