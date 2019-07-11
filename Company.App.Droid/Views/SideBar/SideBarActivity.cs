@@ -12,7 +12,7 @@ using Fragment = FlexiMvvm.Views.Fragment;
 
 namespace Company.App.Droid.Views.SideBar
 {
-    [Activity]
+    [Activity(Theme = "@style/AppTheme.Translucent")]
     public class SideBarActivity : AppCompatActivity<SideBarViewModel>
     {
         private DrawerLayout _drawerLayout;
@@ -47,7 +47,7 @@ namespace Company.App.Droid.Views.SideBar
             SupportFragmentManager.PopBackStack();
             SupportFragmentManager
                 .BeginTransaction()
-                .Replace(Resource.Id.content_frame, fragment)
+                .Replace(Resource.Id.content_layout, fragment)
                 .AddToBackStackIf(!isDefault, null)
                 .Commit();
 
