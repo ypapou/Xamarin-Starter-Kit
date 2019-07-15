@@ -8,20 +8,23 @@ namespace Company.App.Ios.Views.SideBar
 {
     public class SideBarMenuView : ScrollableLayoutView
     {
-        public UIButton Template1Button { get; private set; }
+        public UIButton Template1Button { get; } = new UIButton(UIButtonType.Custom);
 
-        public UIButton Template2Button { get; private set; }
+        public UIButton Template2Button { get; } = new UIButton(UIButtonType.Custom);
 
-        public UIButton Template3Button { get; private set; }
+        public UIButton Template3Button { get; } = new UIButton(UIButtonType.Custom);
 
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
 
             BackgroundColor = AppTheme.Current.Colors.SideBarMenuBackground;
-            Template1Button = new UIButton().SetSideBarMenuItemStyle(Strings.SideBarMenu_Item_Template1, AppTheme.Current.Images.GetTemplate1Icon24());
-            Template2Button = new UIButton().SetSideBarMenuItemStyle(Strings.SideBarMenu_Item_Template2, AppTheme.Current.Images.GetTemplate2Icon24());
-            Template3Button = new UIButton().SetSideBarMenuItemStyle(Strings.SideBarMenu_Item_Template3, AppTheme.Current.Images.GetTemplate3Icon24());
+
+            Template1Button.SetSideBarMenuItemStyle(Strings.SideBarMenu_Item_Template1, AppTheme.Current.Images.GetTemplate1Icon24());
+
+            Template2Button.SetSideBarMenuItemStyle(Strings.SideBarMenu_Item_Template2, AppTheme.Current.Images.GetTemplate2Icon24());
+
+            Template3Button.SetSideBarMenuItemStyle(Strings.SideBarMenu_Item_Template3, AppTheme.Current.Images.GetTemplate3Icon24());
         }
 
         protected override void SetupLayout()

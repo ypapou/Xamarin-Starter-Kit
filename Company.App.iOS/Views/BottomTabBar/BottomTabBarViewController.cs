@@ -49,13 +49,13 @@ namespace Company.App.Ios.Views.BottomTabBar
             this.ViewControllerSelectedWeakSubscribe(BottomTabBarViewController_ViewControllerSelected);
         }
 
-        public void SetRootContent(Func<ViewController> tabContentViewControllerFactory, BottomTabBarItem item)
+        public void SetRootContent(Func<ViewController> viewControllerFactory, BottomTabBarItem item)
         {
             var tabNavigationController = (UINavigationController)GetTabViewController(item);
 
             if (!tabNavigationController.ViewControllers.Any())
             {
-                tabNavigationController.PushViewController(tabContentViewControllerFactory(), false);
+                tabNavigationController.PushViewController(viewControllerFactory(), false);
             }
 
             SelectedViewController = tabNavigationController;

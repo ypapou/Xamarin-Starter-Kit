@@ -24,6 +24,8 @@ namespace Company.App.Ios.Theme
 
         public abstract UIColor SideBarMenuItemBackgroundSelected { get; }
 
+        public abstract UIColor SideBarMenuItemIconBackground { get; }
+
         public abstract UIColor SideBarMenuItemText { get; }
     }
 }

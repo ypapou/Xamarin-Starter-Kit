@@ -9,7 +9,7 @@ namespace Company.App.Ios.Views
         public static UIBarButtonItem CreateSideBarMenu()
         {
             return new UIBarButtonItem(
-                AppTheme.Current.Images.GetSideBarMenuIcon24(),
+                AppTheme.Current.Images.GetSideBarMenuIcon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal),
                 UIBarButtonItemStyle.Plain,
                 (sender, args) => SideBarViewController.Current?.ToggleMenu());
         }

@@ -1,39 +1,24 @@
-﻿using Company.App.Presentation.Navigation;
-using FlexiMvvm.Commands;
-using FlexiMvvm.ViewModels;
+﻿using FlexiMvvm.ViewModels;
 
 namespace Company.App.Presentation.ViewModels.SideBar
 {
     public class SideBarViewModel : LifecycleViewModel
     {
-        private readonly INavigationService _navigationService;
         private readonly ISideBarNavigationMediator _sideBarNavigationMediator;
 
-        public SideBarViewModel(INavigationService navigationService, ISideBarNavigationMediator sideBarNavigationMediator)
+        public SideBarViewModel(ISideBarNavigationMediator sideBarNavigationMediator)
         {
-            _navigationService = navigationService;
             _sideBarNavigationMediator = sideBarNavigationMediator;
-
-            _sideBarNavigationMediator.SetSideBarViewModel(this);
         }
 
-        public Interaction CloseMenuInteraction { get; } = new Interaction();
+        public SideBarMenuItem DefaultItem => _sideBarNavigationMediator.DefaultItem;
 
-        public Command SelectDefaultMenuItemCommand => CommandProvider.Get(_sideBarNavigationMediator.SelectDefaultMenuItem);
-
-        internal void NavigateToTemplate1(bool isDefault)
+        public SideBarMenuItem Selectedtem
         {
-            _navigationService.NavigateToTemplate1(this, isDefault);
+            get => _sideBarNavigationMediator.SelectedItem;
+            set => _sideBarNavigationMediator.SelectedItem = value;
         }
 
-        internal void NavigateToTemplate2(bool isDefault)
-        {
-            _navigationService.NavigateToTemplate2(this, isDefault);
-        }
-
-        internal void NavigateToTemplate3(bool isDefault)
-        {
-            _navigationService.NavigateToTemplate3(this, isDefault);
-        }
+        public Interaction CloseMenuInteraction => _sideBarNavigationMediator.CloseMenuInteraction;
     }
 }

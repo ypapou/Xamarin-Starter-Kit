@@ -3,18 +3,20 @@ using Android.App;
 using Android.OS;
 using Android.Support.V4.View;
 using Android.Support.V4.Widget;
-using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Company.App.Presentation.ViewModels.SideBar;
 using FlexiMvvm.ViewModels;
 using FlexiMvvm.Views;
-using Fragment = FlexiMvvm.Views.Fragment;
 
 namespace Company.App.Droid.Views.SideBar
 {
+    using Android.Support.V4.App;
+
     [Activity(Theme = "@style/AppTheme.Translucent")]
     public class SideBarActivity : AppCompatActivity<SideBarViewModel>
     {
+        private const string RootContentBackStackEntryName = "RootContent";
+
         private DrawerLayout _drawerLayout;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,7 +28,7 @@ namespace Company.App.Droid.Views.SideBar
             SetSupportActionBar(toolbar);
 
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            var drawerToggle = new ActionBarDrawerToggle(this, _drawerLayout, toolbar, Resource.String.SideBar_OpenMenu, Resource.String.SideBar_CloseMenu);
+            var drawerToggle = new Android.Support.V7.App.ActionBarDrawerToggle(this, _drawerLayout, toolbar, Resource.String.SideBar_OpenMenu, Resource.String.SideBar_CloseMenu);
             _drawerLayout.AddDrawerListener(drawerToggle);
             drawerToggle.SyncState();
 
@@ -42,16 +44,26 @@ namespace Company.App.Droid.Views.SideBar
             }
         }
 
-        public void SetContent(Fragment fragment, bool isDefault)
+        public void SetRootContent(Fragment fragment, SideBarMenuItem item)
         {
-            SupportFragmentManager.PopBackStack();
+            SupportFragmentManager.PopBackStack(RootContentBackStackEntryName, (int)PopBackStackFlags.Inclusive);
             SupportFragmentManager
                 .BeginTransaction()
                 .Replace(Resource.Id.content_layout, fragment)
-                .AddToBackStackIf(!isDefault, null)
+                .AddToBackStackIf(item != ViewModel.DefaultItem, RootContentBackStackEntryName)
                 .Commit();
 
+            ViewModel.Selectedtem = item;
             TryCloseDrawer();
+        }
+
+        public void SetContent(Fragment fragment, bool addToBackStack)
+        {
+            SupportFragmentManager
+                .BeginTransaction()
+                .Replace(Resource.Id.content_layout, fragment)
+                .AddToBackStackIf(addToBackStack, null)
+                .Commit();
         }
 
         private bool TryCloseDrawer()
@@ -71,7 +83,7 @@ namespace Company.App.Droid.Views.SideBar
         {
             if (SupportFragmentManager.BackStackEntryCount == 0)
             {
-                ViewModel.SelectDefaultMenuItemCommand.Execute();
+                ViewModel.Selectedtem = ViewModel.DefaultItem;
             }
         }
 

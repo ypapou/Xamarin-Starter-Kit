@@ -21,9 +21,11 @@ namespace Company.App.Ios.Theme.Universal.Light
 
         public override UIColor SideBarMenuBackground { get; } = UIColor.White;
 
-        public override UIColor SideBarMenuItemBackgroundHighlighted { get; } = UIColor.FromRGB(180, 180, 180);
+        public override UIColor SideBarMenuItemBackgroundHighlighted { get; } = ColorConverters.FromHex("#B4B4B4").ToPlatformColor();
 
-        public override UIColor SideBarMenuItemBackgroundSelected { get; } = UIColor.FromRGB(220, 220, 220);
+        public override UIColor SideBarMenuItemBackgroundSelected { get; } = ColorConverters.FromHex("#DCDCDC").ToPlatformColor();
+
+        public override UIColor SideBarMenuItemIconBackground { get; } = UIColor.Black;
 
         public override UIColor SideBarMenuItemText { get; } = UIColor.Black;
     }

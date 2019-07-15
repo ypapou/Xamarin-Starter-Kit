@@ -1,19 +1,14 @@
-﻿namespace Company.App.Presentation.ViewModels.SideBar
+﻿using System.ComponentModel;
+using FlexiMvvm.ViewModels;
+
+namespace Company.App.Presentation.ViewModels.SideBar
 {
-    public interface ISideBarNavigationMediator
+    public interface ISideBarNavigationMediator : INotifyPropertyChanged
     {
-        void SetSideBarViewModel(SideBarViewModel viewModel);
+        SideBarMenuItem DefaultItem { get; set; }
 
-        void SetSideBarMenuViewModel(SideBarMenuViewModel viewModel);
+        SideBarMenuItem SelectedItem { get; set; }
 
-        void NavigateToTemplate1(bool isDefault);
-
-        void NavigateToTemplate2(bool isDefault);
-
-        void NavigateToTemplate3(bool isDefault);
-
-        void CloseMenu();
-
-        void SelectDefaultMenuItem();
+        Interaction CloseMenuInteraction { get; }
     }
 }

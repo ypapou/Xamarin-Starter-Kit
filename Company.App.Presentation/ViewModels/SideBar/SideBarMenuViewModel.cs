@@ -1,24 +1,25 @@
-﻿using FlexiMvvm.Commands;
+﻿using System.ComponentModel;
+using Company.App.Presentation.Navigation;
+using FlexiMvvm;
+using FlexiMvvm.Commands;
 using FlexiMvvm.ViewModels;
 
 namespace Company.App.Presentation.ViewModels.SideBar
 {
     public class SideBarMenuViewModel : LifecycleViewModel
     {
-        private const SideBarMenuItem DefaultItem = SideBarMenuItem.Template1;
-
+        private readonly INavigationService _navigationService;
         private readonly ISideBarNavigationMediator _sideBarNavigationMediator;
 
-        public SideBarMenuViewModel(ISideBarNavigationMediator sideBarNavigationMediator)
+        public SideBarMenuViewModel(INavigationService navigationService, ISideBarNavigationMediator sideBarNavigationMediator)
         {
+            _navigationService = navigationService;
             _sideBarNavigationMediator = sideBarNavigationMediator;
-
-            _sideBarNavigationMediator.SetSideBarMenuViewModel(this);
         }
 
         public SideBarMenuItem SelectedItem
         {
-            get => State.GetEnum(defaultValue: SideBarMenuItem.None);
+            get => State.GetEnum<SideBarMenuItem>();
             private set => State.SetEnum(value);
         }
 
@@ -28,9 +29,13 @@ namespace Company.App.Presentation.ViewModels.SideBar
         {
             base.Initialize(recreated);
 
+            _sideBarNavigationMediator.DefaultItem = SideBarMenuItem.Template1;
+            _sideBarNavigationMediator.SelectedItem = SelectedItem;
+            _sideBarNavigationMediator.PropertyChangedWeakSubscribe(SideBarNavigationMediator_PropertyChanged);
+
             if (!recreated)
             {
-                NavigateToItem(DefaultItem);
+                NavigateToItem(_sideBarNavigationMediator.DefaultItem);
             }
         }
 
@@ -38,36 +43,31 @@ namespace Company.App.Presentation.ViewModels.SideBar
         {
             if (item != SelectedItem)
             {
-                var isDefaultItem = item == DefaultItem;
-
                 switch (item)
                 {
                     case SideBarMenuItem.Template1:
-                        _sideBarNavigationMediator.NavigateToTemplate1(isDefaultItem);
-                        SelectedItem = item;
+                        _navigationService.NavigateToTemplate1(this);
                         break;
                     case SideBarMenuItem.Template2:
-                        _sideBarNavigationMediator.NavigateToTemplate2(isDefaultItem);
-                        SelectedItem = item;
+                        _navigationService.NavigateToTemplate2(this);
                         break;
                     case SideBarMenuItem.Template3:
-                        _sideBarNavigationMediator.NavigateToTemplate3(isDefaultItem);
-                        SelectedItem = item;
+                        _navigationService.NavigateToTemplate3(this);
                         break;
                     default:
-                        /* DiagnosticLogger.NonCriticalIssue($"'{item}' side bar menu item is not handled."); */
+                        /* Do logging */
                         break;
                 }
             }
             else
             {
-                _sideBarNavigationMediator.CloseMenu();
+                _sideBarNavigationMediator.CloseMenuInteraction.RaiseRequested();
             }
         }
 
-        internal void SelectDefaultItem()
+        private void SideBarNavigationMediator_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            SelectedItem = DefaultItem;
+            SelectedItem = _sideBarNavigationMediator.SelectedItem;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
             _navigationService = navigationService;
         }
 
-        public BottomTabBarItem DefaultItem { get; } = BottomTabBarItem.Template1;
+        public BottomTabBarItem DefaultItem { get; private set; }
 
         public BottomTabBarItem SelectedItem
         {
@@ -42,6 +42,8 @@ namespace Company.App.Presentation.ViewModels.BottomTabBar
         public override void Initialize(bool recreated)
         {
             base.Initialize(recreated);
+
+            DefaultItem = BottomTabBarItem.Template1;
 
             if (!recreated)
             {

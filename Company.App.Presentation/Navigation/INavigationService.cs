@@ -24,15 +24,15 @@ namespace Company.App.Presentation.Navigation
     {
         void NavigateToHome(ILifecycleViewModel fromViewModel);
 
-        void NavigateToTemplate1(SideBarViewModel fromViewModel, bool isDefault);
+        void NavigateToTemplate1(SideBarMenuViewModel fromViewModel);
 
         void NavigateToTemplate1(BottomTabBarViewModel fromViewModel);
 
-        void NavigateToTemplate2(SideBarViewModel fromViewModel, bool isDefault);
+        void NavigateToTemplate2(SideBarMenuViewModel fromViewModel);
 
         void NavigateToTemplate2(BottomTabBarViewModel fromViewModel);
 
-        void NavigateToTemplate3(SideBarViewModel fromViewModel, bool isDefault);
+        void NavigateToTemplate3(SideBarMenuViewModel fromViewModel);
 
         void NavigateToTemplate3(BottomTabBarViewModel fromViewModel);
     }

@@ -22,12 +22,13 @@ namespace Company.App.Ios.Navigation
             Navigate(fromView, toView, true);
         }
 
-        public void NavigateToTemplate1(SideBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate1(SideBarMenuViewModel fromViewModel)
         {
-            var hostView = NavigationViewProvider.GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
+            var fromView = NavigationViewProvider.GetViewController<SideBarMenuViewController, SideBarMenuViewModel>(fromViewModel);
+            var hostView = fromView.SideBarViewController;
             var contentView = new Template1ViewController();
 
-            hostView.SetContent(contentView);
+            hostView.SetRootContent(contentView, SideBarMenuItem.Template1);
         }
 
         public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel)
@@ -38,12 +39,13 @@ namespace Company.App.Ios.Navigation
             hostView.SetRootContent(contentViewFactory, BottomTabBarItem.Template1);
         }
 
-        public void NavigateToTemplate2(SideBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate2(SideBarMenuViewModel fromViewModel)
         {
-            var hostView = NavigationViewProvider.GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
+            var fromView = NavigationViewProvider.GetViewController<SideBarMenuViewController, SideBarMenuViewModel>(fromViewModel);
+            var hostView = fromView.SideBarViewController;
             var contentView = new Template2ViewController();
 
-            hostView.SetContent(contentView);
+            hostView.SetRootContent(contentView, SideBarMenuItem.Template2);
         }
 
         public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel)
@@ -54,12 +56,13 @@ namespace Company.App.Ios.Navigation
             hostView.SetRootContent(contentViewFactory, BottomTabBarItem.Template2);
         }
 
-        public void NavigateToTemplate3(SideBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate3(SideBarMenuViewModel fromViewModel)
         {
-            var hostView = NavigationViewProvider.GetViewController<SideBarViewController, SideBarViewModel>(fromViewModel);
+            var fromView = NavigationViewProvider.GetViewController<SideBarMenuViewController, SideBarMenuViewModel>(fromViewModel);
+            var hostView = fromView.SideBarViewController;
             var contentView = new Template3ViewController();
 
-            hostView.SetContent(contentView);
+            hostView.SetRootContent(contentView, SideBarMenuItem.Template3);
         }
 
         public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel)

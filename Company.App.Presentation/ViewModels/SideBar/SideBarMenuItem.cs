@@ -2,7 +2,7 @@
 {
     public enum SideBarMenuItem
     {
-        None = -1,
+        None,
 
         Template1,
 

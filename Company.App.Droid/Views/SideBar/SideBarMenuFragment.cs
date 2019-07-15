@@ -14,11 +14,14 @@ namespace Company.App.Droid.Views.SideBar
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.side_bar_menu, container, false);
+            return inflater.Inflate(Resource.Layout.side_bar_menu, container, false);
+        }
+
+        public override void OnViewCreated(View view, Bundle savedInstanceState)
+        {
+            base.OnViewCreated(view, savedInstanceState);
 
             NavigationView = view.FindViewById<NavigationView>(Resource.Id.navigation_view);
-
-            return view;
         }
 
         public override void Bind(BindingSet<SideBarMenuViewModel> bindingSet)

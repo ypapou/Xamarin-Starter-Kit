@@ -20,12 +20,13 @@ namespace Company.App.Droid.Navigation
             Navigate<SideBarActivity>(fromView);
         }
 
-        public void NavigateToTemplate1(SideBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate1(SideBarMenuViewModel fromViewModel)
         {
-            var hostView = NavigationViewProvider.GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
+            var fromView = NavigationViewProvider.GetFragment<SideBarMenuFragment, SideBarMenuViewModel>(fromViewModel);
+            var hostView = (SideBarActivity)fromView.Activity;
             var contentView = Template1Fragment.NewInstance();
 
-            hostView.SetContent(contentView, isDefault);
+            hostView.SetRootContent(contentView, SideBarMenuItem.Template1);
         }
 
         public void NavigateToTemplate1(BottomTabBarViewModel fromViewModel)
@@ -36,12 +37,13 @@ namespace Company.App.Droid.Navigation
             hostView.SetRootContent(contentView, BottomTabBarItem.Template1);
         }
 
-        public void NavigateToTemplate2(SideBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate2(SideBarMenuViewModel fromViewModel)
         {
-            var hostView = NavigationViewProvider.GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
+            var fromView = NavigationViewProvider.GetFragment<SideBarMenuFragment, SideBarMenuViewModel>(fromViewModel);
+            var hostView = (SideBarActivity)fromView.Activity;
             var contentView = Template2Fragment.NewInstance();
 
-            hostView.SetContent(contentView, isDefault);
+            hostView.SetRootContent(contentView, SideBarMenuItem.Template2);
         }
 
         public void NavigateToTemplate2(BottomTabBarViewModel fromViewModel)
@@ -52,12 +54,13 @@ namespace Company.App.Droid.Navigation
             hostView.SetRootContent(contentView, BottomTabBarItem.Template2);
         }
 
-        public void NavigateToTemplate3(SideBarViewModel fromViewModel, bool isDefault)
+        public void NavigateToTemplate3(SideBarMenuViewModel fromViewModel)
         {
-            var hostView = NavigationViewProvider.GetActivity<SideBarActivity, SideBarViewModel>(fromViewModel);
+            var fromView = NavigationViewProvider.GetFragment<SideBarMenuFragment, SideBarMenuViewModel>(fromViewModel);
+            var hostView = (SideBarActivity)fromView.Activity;
             var contentView = Template3Fragment.NewInstance();
 
-            hostView.SetContent(contentView, isDefault);
+            hostView.SetRootContent(contentView, SideBarMenuItem.Template3);
         }
 
         public void NavigateToTemplate3(BottomTabBarViewModel fromViewModel)

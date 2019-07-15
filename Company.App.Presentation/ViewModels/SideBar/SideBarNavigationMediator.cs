@@ -1,46 +1,14 @@
-﻿using System;
-using FlexiMvvm;
+﻿using FlexiMvvm;
+using FlexiMvvm.ViewModels;
 
 namespace Company.App.Presentation.ViewModels.SideBar
 {
-    public class SideBarNavigationMediator : ISideBarNavigationMediator
+    public class SideBarNavigationMediator : ObservableObject, ISideBarNavigationMediator
     {
-        private WeakReference<SideBarViewModel> _sideBarViewModelWeakReference;
-        private WeakReference<SideBarMenuViewModel> _sideBarMenuViewModelWeakReference;
+        public SideBarMenuItem DefaultItem { get; set; }
 
-        public void SetSideBarViewModel(SideBarViewModel viewModel)
-        {
-            _sideBarViewModelWeakReference = new WeakReference<SideBarViewModel>(viewModel);
-        }
+        public SideBarMenuItem SelectedItem { get; set; }
 
-        public void SetSideBarMenuViewModel(SideBarMenuViewModel viewModel)
-        {
-            _sideBarMenuViewModelWeakReference = new WeakReference<SideBarMenuViewModel>(viewModel);
-        }
-
-        public void NavigateToTemplate1(bool isDefault)
-        {
-            _sideBarViewModelWeakReference?.GetTarget()?.NavigateToTemplate1(isDefault);
-        }
-
-        public void NavigateToTemplate2(bool isDefault)
-        {
-            _sideBarViewModelWeakReference?.GetTarget()?.NavigateToTemplate2(isDefault);
-        }
-
-        public void NavigateToTemplate3(bool isDefault)
-        {
-            _sideBarViewModelWeakReference?.GetTarget()?.NavigateToTemplate3(isDefault);
-        }
-
-        public void CloseMenu()
-        {
-            _sideBarViewModelWeakReference?.GetTarget()?.CloseMenuInteraction.RaiseRequested();
-        }
-
-        public void SelectDefaultMenuItem()
-        {
-            _sideBarMenuViewModelWeakReference?.GetTarget()?.SelectDefaultItem();
-        }
+        public Interaction CloseMenuInteraction { get; } = new Interaction();
     }
 }

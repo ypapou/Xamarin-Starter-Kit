@@ -40,8 +40,8 @@ namespace Company.App.Presentation.Bootstrappers
         {
             simpleIoc.Register<ISideBarNavigationMediator>(() => new SideBarNavigationMediator(), Reuse.Singleton);
             simpleIoc.Register(() => new EntryViewModel(simpleIoc.Get<INavigationService>()));
-            simpleIoc.Register(() => new SideBarViewModel(simpleIoc.Get<INavigationService>(), simpleIoc.Get<ISideBarNavigationMediator>()));
-            simpleIoc.Register(() => new SideBarMenuViewModel(simpleIoc.Get<ISideBarNavigationMediator>()));
+            simpleIoc.Register(() => new SideBarViewModel(simpleIoc.Get<ISideBarNavigationMediator>()));
+            simpleIoc.Register(() => new SideBarMenuViewModel(simpleIoc.Get<INavigationService>(), simpleIoc.Get<ISideBarNavigationMediator>()));
             simpleIoc.Register(() => new BottomTabBarViewModel(simpleIoc.Get<INavigationService>()));
             simpleIoc.Register(() => new Template1ViewModel());
             simpleIoc.Register(() => new Template2ViewModel());

@@ -1,4 +1,5 @@
-﻿using Company.App.Ios.ValueConverters;
+﻿using System;
+using Company.App.Ios.ValueConverters;
 using Company.App.Presentation.ViewModels.SideBar;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
@@ -7,11 +8,21 @@ namespace Company.App.Ios.Views.SideBar
 {
     public class SideBarMenuViewController : BindableViewController<SideBarMenuViewModel>
     {
+        [Weak]
+        private readonly SideBarViewController _sideBarViewController;
+
+        public SideBarMenuViewController(SideBarViewController sideBarViewController)
+        {
+            _sideBarViewController = sideBarViewController;
+        }
+
         private new SideBarMenuView View
         {
             get => (SideBarMenuView)base.View;
             set => base.View = value;
         }
+
+        public SideBarViewController SideBarViewController => _sideBarViewController;
 
         public override void LoadView()
         {
