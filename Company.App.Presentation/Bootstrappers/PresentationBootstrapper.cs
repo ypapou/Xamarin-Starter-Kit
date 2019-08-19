@@ -28,12 +28,12 @@ namespace Company.App.Presentation.Bootstrappers
             SetupDependencies(simpleIoc);
             SetupViewModels(simpleIoc);
             SetupLifecycleViewModelProvider(simpleIoc);
+            SetupImageService(simpleIoc);
         }
 
         private void SetupDependencies(ISimpleIoc simpleIoc)
         {
             simpleIoc.Register<IOperationFactory>(() => new OperationFactory(simpleIoc, new ErrorHandler()), Reuse.Singleton);
-            simpleIoc.Register<IImageService>(() => CreateImageService(simpleIoc), Reuse.Singleton);
         }
 
         private void SetupViewModels(ISimpleIoc simpleIoc)
@@ -53,17 +53,14 @@ namespace Company.App.Presentation.Bootstrappers
             LifecycleViewModelProvider.SetFactory(new DefaultLifecycleViewModelFactory(serviceProvider));
         }
 
-        private IImageService CreateImageService(IDependencyProvider dependencyProvider)
+        private void SetupImageService(IDependencyProvider dependencyProvider)
         {
-            var imageService = new ImageService();
             var nativeHttpClientHandlerFactory = dependencyProvider.Get<INativeHttpClientHandlerFactory>();
 
-            imageService.Initialize(new Configuration
+            ImageService.Instance.Initialize(new Configuration
             {
                 HttpClient = new HttpClient(nativeHttpClientHandlerFactory.Create())
             });
-
-            return imageService;
         }
     }
 }
