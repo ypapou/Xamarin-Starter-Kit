@@ -68,6 +68,8 @@
     <Compile Include="Bootstrappers\PlatformBootstrapper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Presenters\OverlayPresentationController.cs" />
+    <Compile Include="Presenters\OverlayTransitioningDelegate.cs" />
     <Compile Include="Theme\AppTheme.cs" />
     <Compile Include="Theme\AppThemeColors.cs" />
     <Compile Include="Theme\AppThemeDimens.cs" />
