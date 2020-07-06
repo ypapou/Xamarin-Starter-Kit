@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Company.App.Common.Resources;
 using Company.App.Ios.Theme;
 using Company.App.Presentation.ViewModels.BottomTabBar;
+using Company.App.Resources;
 using FlexiMvvm.Views;
 using UIKit;
 

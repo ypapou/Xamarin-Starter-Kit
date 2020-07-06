@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.Http;
-using Company.App.Common.Bootstrappers;
+using Company.App.Bootstrappers;
 using Company.App.Infrastructure.Http;
 using Company.App.Presentation.Navigation;
 using Company.App.Presentation.Operations;

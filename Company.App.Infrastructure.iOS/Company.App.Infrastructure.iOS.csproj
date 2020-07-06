@@ -48,9 +48,9 @@
     <Compile Include="Views\ViewProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Company.App.Common\Company.App.Common.csproj">
+    <ProjectReference Include="..\Company.App\Company.App.csproj">
       <Project>{061f501e-7c83-48b2-a6ea-8d67599bfb3e}</Project>
-      <Name>Company.App.Common</Name>
+      <Name>Company.App</Name>
     </ProjectReference>
     <ProjectReference Include="..\Company.App.Infrastructure\Company.App.Infrastructure.csproj">
       <Project>{4cd26b91-cc04-42b3-865f-0bb2cc4f8d5c}</Project>

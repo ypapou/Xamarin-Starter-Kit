@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Company.App.Application.UserInteraction;
-using Company.App.Common.Resources;
+using Company.App.Resources;
 using FlexiMvvm.Exceptions;
 using FlexiMvvm.Operations;
 using Microsoft.AppCenter.Crashes;

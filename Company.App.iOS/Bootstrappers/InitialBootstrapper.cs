@@ -1,6 +1,5 @@
 ﻿using Company.App.Application.Bootstrappers;
-using Company.App.Common;
-using Company.App.Common.Bootstrappers;
+using Company.App.Bootstrappers;
 using Company.App.Infrastructure.Bootstrappers;
 using Company.App.Presentation.Bootstrappers;
 using FlexiMvvm.Bootstrappers;

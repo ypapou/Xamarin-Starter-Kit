@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.136
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.App.Droid", "Company.App.Droid\Company.App.Droid.csproj", "{4ED26A4B-7CEE-4EDD-83C3-A21E096F5997}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.App.Presentation", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FAEF0125-A67B-4C73-9FA0-06A867BE096D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.App.Common", "Company.App.Common\Company.App.Common.csproj", "{061F501E-7C83-48B2-A6EA-8D67599BFB3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.App", "Company.App\Company.App.csproj", "{061F501E-7C83-48B2-A6EA-8D67599BFB3E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.App.Infrastructure.Droid", "Company.App.Infrastructure.Droid\Company.App.Infrastructure.Droid.csproj", "{43D2B7C9-A85B-4980-B6C4-D589CE0C323B}"
 EndProject

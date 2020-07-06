@@ -1,6 +1,6 @@
 ﻿using Company.App.Application.Connectivity;
 using Company.App.Application.UserInteraction;
-using Company.App.Common.Bootstrappers;
+using Company.App.Bootstrappers;
 using Company.App.Infrastructure.Connectivity;
 using Company.App.Infrastructure.Dialogs;
 using FlexiMvvm.Bootstrappers;

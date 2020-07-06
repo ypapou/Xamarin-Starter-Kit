@@ -1,5 +1,5 @@
-﻿using Company.App.Common.Resources;
-using Company.App.Presentation.ViewModels.Template2;
+﻿using Company.App.Presentation.ViewModels.Template2;
+using Company.App.Resources;
 using FlexiMvvm.Views;
 using UIKit;
 

@@ -1,4 +1,4 @@
-﻿using Company.App.Common.Bootstrappers;
+﻿using Company.App.Bootstrappers;
 using Company.App.Droid.Navigation;
 using Company.App.Presentation.Navigation;
 using FlexiMvvm.Bootstrappers;

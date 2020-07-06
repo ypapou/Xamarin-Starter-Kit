@@ -223,9 +223,9 @@
       <Project>{0fbed052-c18d-43e6-814f-ead7d6773f1b}</Project>
       <Name>Company.App.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Company.App.Common\Company.App.Common.csproj">
+    <ProjectReference Include="..\Company.App\Company.App.csproj">
       <Project>{061f501e-7c83-48b2-a6ea-8d67599bfb3e}</Project>
-      <Name>Company.App.Common</Name>
+      <Name>Company.App</Name>
     </ProjectReference>
     <ProjectReference Include="..\Company.App.Infrastructure.iOS\Company.App.Infrastructure.iOS.csproj">
       <Project>{e71f3053-056c-4381-9638-048ed73bdff6}</Project>

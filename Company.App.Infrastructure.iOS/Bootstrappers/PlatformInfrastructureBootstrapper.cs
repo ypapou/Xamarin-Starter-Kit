@@ -1,4 +1,4 @@
-﻿using Company.App.Common.Bootstrappers;
+﻿using Company.App.Bootstrappers;
 using Company.App.Infrastructure.Dialogs;
 using Company.App.Infrastructure.Http;
 using FlexiMvvm.Bootstrappers;

@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Company.App.Application.Connectivity;
-using Company.App.Common.Resources;
 using Company.App.Infrastructure.Connectivity;
+using Company.App.Resources;
 using FlexiMvvm.Operations;
 
 namespace Company.App.Presentation.Operations

@@ -1,4 +1,4 @@
-﻿namespace Company.App.Common
+﻿namespace Company.App
 {
     public enum AppExecutionEnvironment
     {

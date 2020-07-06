@@ -1,4 +1,4 @@
-﻿using Company.App.Common.Bootstrappers;
+﻿using Company.App.Bootstrappers;
 using Company.App.Ios.Navigation;
 using Company.App.Ios.Theme;
 using Company.App.Ios.Theme.Universal.Light;

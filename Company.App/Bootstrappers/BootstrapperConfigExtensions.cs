@@ -1,7 +1,7 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
 
-namespace Company.App.Common.Bootstrappers
+namespace Company.App.Bootstrappers
 {
     public static class BootstrapperConfigExtensions
     {

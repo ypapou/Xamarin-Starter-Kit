@@ -1,6 +1,6 @@
 ﻿using Cirrious.FluentLayouts.Touch;
-using Company.App.Common.Resources;
 using Company.App.Ios.Theme;
+using Company.App.Resources;
 using FlexiMvvm.Views;
 using UIKit;
 

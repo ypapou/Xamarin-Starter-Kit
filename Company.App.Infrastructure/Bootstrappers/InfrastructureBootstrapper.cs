@@ -1,4 +1,4 @@
-﻿using Company.App.Common.Bootstrappers;
+﻿using Company.App.Bootstrappers;
 using Company.App.Infrastructure.Connectivity;
 using Company.App.Infrastructure.Preferences;
 using Company.App.Infrastructure.SecureStorage;

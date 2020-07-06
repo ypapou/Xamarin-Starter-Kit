@@ -146,9 +146,9 @@
       <Project>{0fbed052-c18d-43e6-814f-ead7d6773f1b}</Project>
       <Name>Company.App.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Company.App.Common\Company.App.Common.csproj">
+    <ProjectReference Include="..\Company.App\Company.App.csproj">
       <Project>{061F501E-7C83-48B2-A6EA-8D67599BFB3E}</Project>
-      <Name>Company.App.Common</Name>
+      <Name>Company.App</Name>
     </ProjectReference>
     <ProjectReference Include="..\Company.App.Infrastructure.Droid\Company.App.Infrastructure.Droid.csproj">
       <Project>{43d2b7c9-a85b-4980-b6c4-d589ce0c323b}</Project>
