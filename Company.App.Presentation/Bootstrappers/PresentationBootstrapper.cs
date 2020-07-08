@@ -57,7 +57,7 @@ namespace Company.App.Presentation.Bootstrappers
         {
             var nativeHttpClientHandlerFactory = dependencyProvider.Get<INativeHttpClientHandlerFactory>();
 
-            ImageService.Instance.Initialize(new Configuration
+            ImageService.Instance.Initialize(new FFImageLoading.Config.Configuration
             {
                 HttpClient = new HttpClient(nativeHttpClientHandlerFactory.Create())
             });

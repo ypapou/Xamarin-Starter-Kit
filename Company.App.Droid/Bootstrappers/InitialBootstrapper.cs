@@ -2,6 +2,8 @@
 using Android.OS;
 using Company.App.Application.Bootstrappers;
 using Company.App.Bootstrappers;
+using Company.App.Configuration;
+using Company.App.Droid.Configuration;
 using Company.App.Infrastructure.Bootstrappers;
 using Company.App.Presentation.Bootstrappers;
 using FlexiMvvm.Bootstrappers;
@@ -17,21 +19,44 @@ namespace Company.App.Droid.Bootstrappers
     {
         public static void Execute(Activity activity, Bundle bundle)
         {
-            SetupCrashReporting();
+            var config = CreateBootstrapperConfig();
+            var simpleIoc = config.GetSimpleIoc();
+
+            SetupEnvironmentConfig(simpleIoc);
+            SetupAppCenter(simpleIoc);
             SetupPlugins(activity, bundle);
             SetupFlexiMvvm();
 
-            var config = CreateBootstrapperConfig();
             ExecuteBootstrappers(config);
         }
 
-        private static void SetupCrashReporting()
+        private static BootstrapperConfig CreateBootstrapperConfig()
         {
-#if QA_ENV
-            AppCenter.Start(typeof(Crashes));
-#else
-            AppCenter.Start(typeof(Crashes));
-#endif
+            var config = new BootstrapperConfig();
+            config.SetSimpleIoc(new SimpleIoc());
+
+            return config;
+        }
+
+        private static void SetupEnvironmentConfig(ISimpleIoc simpleIoc)
+        {
+            simpleIoc.Register(
+                () => new AppEnvironmentConfig(),
+                Reuse.Singleton);
+
+            simpleIoc.Register<IEnvironmentConfig>(
+                simpleIoc.Get<AppEnvironmentConfig>);
+
+            simpleIoc.Register<IAppEnvironmentConfig>(
+                simpleIoc.Get<AppEnvironmentConfig>);
+        }
+
+        private static void SetupAppCenter(ISimpleIoc simpleIoc)
+        {
+            var appEnvironmentConfig = simpleIoc.Get<IAppEnvironmentConfig>();
+            var appCenterSecret = appEnvironmentConfig.AppCenterSecret;
+
+            AppCenter.Start(appCenterSecret, typeof(Crashes));
         }
 
         private static void SetupPlugins(Activity activity, Bundle bundle)
@@ -42,21 +67,6 @@ namespace Company.App.Droid.Bootstrappers
         private static void SetupFlexiMvvm()
         {
             FlexiMvvmConfig.Instance.ShouldRaisePropertyChanged(false);
-        }
-
-        private static BootstrapperConfig CreateBootstrapperConfig()
-        {
-            var config = new BootstrapperConfig();
-            config.SetSimpleIoc(new SimpleIoc());
-#if DEBUG
-            config.SetAppExecutionEnvironment(AppExecutionEnvironment.Dev);
-#elif QA_ENV
-            config.SetAppExecutionEnvironment(AppExecutionEnvironment.Qa);
-#else
-            config.SetAppExecutionEnvironment(AppExecutionEnvironment.Prod);
-#endif
-
-            return config;
         }
 
         private static void ExecuteBootstrappers(BootstrapperConfig config)

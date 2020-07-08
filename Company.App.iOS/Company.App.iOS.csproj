@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\InitialBootstrapper.cs" />
     <Compile Include="Bootstrappers\PlatformBootstrapper.cs" />
+    <Compile Include="Configuration\AppEnvironmentConfig.cs" />
+    <Compile Include="Configuration\IAppEnvironmentConfig.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Presenters\OverlayPresentationController.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Views\Template3\Template3ViewController.cs" />
     <Compile Include="Views\Template2\Template2View.cs" />
     <Compile Include="Views\Template2\Template2ViewController.cs" />
+    <None Include="secrets.dev.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -207,6 +210,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Mobile.BuildTools">
+      <Version>1.4.0.638</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.2.0</Version>

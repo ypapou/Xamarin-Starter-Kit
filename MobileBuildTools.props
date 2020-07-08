@@ -1,0 +1,20 @@
+<Project>
+
+  <!-- General configuration -->
+  <PropertyGroup>
+    <!-- This will allow output of your actual secrets to the Build Log -->
+    <MobileBuildToolsDebug>true</MobileBuildToolsDebug>
+  </PropertyGroup>
+
+  <!-- Secrets generation -->
+  <PropertyGroup>
+    <JsonSecretsFileName Condition=" '$(Configuration)' == 'Debug' ">secrets.dev.json</JsonSecretsFileName>
+  </PropertyGroup>
+
+  <!-- Artifact copy -->
+  <PropertyGroup>
+    <!-- Set FALSE for DisableBuildToolsArtifactCopy to disable artifact copy -->
+    <DisableBuildToolsArtifactCopy>false</DisableBuildToolsArtifactCopy>
+  </PropertyGroup>
+
+</Project>

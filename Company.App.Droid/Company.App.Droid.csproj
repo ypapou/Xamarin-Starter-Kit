@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\PlatformBootstrapper.cs" />
     <Compile Include="Bootstrappers\InitialBootstrapper.cs" />
+    <Compile Include="Configuration\AppEnvironmentConfig.cs" />
+    <Compile Include="Configuration\IAppEnvironmentConfig.cs" />
     <Compile Include="Navigation\AppNavigationService.cs" />
     <Compile Include="Navigation\ForwardNavigationStrategyExtensions.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -89,6 +91,7 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="secrets.dev.json" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
@@ -124,6 +127,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Mobile.BuildTools">
+      <Version>1.4.0.638</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>
