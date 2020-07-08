@@ -1,10 +1,11 @@
-﻿using Company.App.Application.Connectivity;
+﻿using Company.App.Application.Services.Connectivity;
 using Company.App.Application.UserInteraction;
 using Company.App.Bootstrappers;
-using Company.App.Infrastructure.Connectivity;
 using Company.App.Infrastructure.Dialogs;
 using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
+using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 
 namespace Company.App.Application.Bootstrappers
 {
@@ -19,8 +20,19 @@ namespace Company.App.Application.Bootstrappers
 
         private void SetupDependencies(ISimpleIoc simpleIoc)
         {
-            simpleIoc.Register<IConnectivityService>(() => new ConnectivityService(simpleIoc.Get<IConnectivity>()), Reuse.Singleton);
-            simpleIoc.Register<IUserInteractionService>(() => new UserInteractionService(simpleIoc.Get<IUserDialog>()), Reuse.Singleton);
+            simpleIoc.Register<IConnectivity>(
+                () => new ConnectivityImplementation(),
+                Reuse.Singleton);
+
+            simpleIoc.Register<IConnectivityService>(
+                () => new ConnectivityService(
+                    simpleIoc.Get<IConnectivity>()),
+                Reuse.Singleton);
+
+            simpleIoc.Register<IUserInteractionService>(
+                () => new UserInteractionService(
+                    simpleIoc.Get<IUserDialog>()),
+                Reuse.Singleton);
         }
     }
 }

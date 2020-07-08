@@ -1,7 +1,4 @@
-﻿using Company.App.Bootstrappers;
-using Company.App.Infrastructure.Connectivity;
-using FlexiMvvm.Bootstrappers;
-using FlexiMvvm.Ioc;
+﻿using FlexiMvvm.Bootstrappers;
 
 namespace Company.App.Infrastructure.Bootstrappers
 {
@@ -9,14 +6,6 @@ namespace Company.App.Infrastructure.Bootstrappers
     {
         public void Execute(BootstrapperConfig config)
         {
-            var simpleIoc = config.GetSimpleIoc();
-
-            SetupDependencies(simpleIoc);
-        }
-
-        private void SetupDependencies(ISimpleIoc simpleIoc)
-        {
-            simpleIoc.Register<IConnectivity>(() => Connectivity.Connectivity.Instance);
         }
     }
 }

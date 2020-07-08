@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Company.App.Infrastructure\Company.App.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.5.3.2" />
+  </ItemGroup>
+
 </Project>

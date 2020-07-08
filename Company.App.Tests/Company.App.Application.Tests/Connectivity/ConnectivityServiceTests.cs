@@ -1,4 +1,4 @@
-﻿using Company.App.Application.Connectivity;
+﻿using Company.App.Application.Services.Connectivity;
 using Xamarin.Essentials;
 using Xunit;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using FlexiMvvm.Exceptions;
 
-namespace Company.App.Infrastructure.Connectivity
+namespace Company.App
 {
     public class ConnectivityException : Exception, IUserFriendlyException
     {

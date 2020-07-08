@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Company.App.Infrastructure.Connectivity;
 using Xamarin.Essentials;
+using Xamarin.Essentials.Interfaces;
 
 namespace Company.App.Application.Tests.Connectivity
 {

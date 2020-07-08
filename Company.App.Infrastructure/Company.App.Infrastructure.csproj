@@ -5,30 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Company.App\Company.App.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="!Extensions\WeakEventSubscriptionExtensionsGenerator.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>WeakEventSubscriptionExtensionsGenerator.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="!Extensions\WeakEventSubscriptionExtensionsGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>WeakEventSubscriptionExtensionsGenerator.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>
