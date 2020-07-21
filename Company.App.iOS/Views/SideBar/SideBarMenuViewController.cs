@@ -6,7 +6,7 @@ using FlexiMvvm.Views;
 
 namespace Company.App.Ios.Views.SideBar
 {
-    public class SideBarMenuViewController : BindableViewController<SideBarMenuViewModel>
+    public class SideBarMenuViewController : FlexiBindableViewController<SideBarMenuViewModel>
     {
         [Weak]
         private readonly SideBarViewController _sideBarViewController;

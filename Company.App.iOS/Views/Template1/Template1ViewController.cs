@@ -5,7 +5,7 @@ using UIKit;
 
 namespace Company.App.Ios.Views.Template1
 {
-    public class Template1ViewController : BindableViewController<Template1ViewModel>
+    public class Template1ViewController : FlexiBindableViewController<Template1ViewModel>
     {
         private UIBarButtonItem SideBarMenuBarButtonItem { get; } = BarButtonItemFactory.CreateSideBarMenu();
 

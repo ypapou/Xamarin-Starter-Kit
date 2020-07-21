@@ -7,7 +7,7 @@ using FlexiMvvm.Views;
 namespace Company.App.Droid.Views
 {
     [Activity(MainLauncher = true, NoHistory = true, Theme = "@style/AppTheme.SplashScreen")]
-    public class SplashScreenActivity : AppCompatActivity<EntryViewModel>
+    public class SplashScreenActivity : FlexiAppCompatActivity<EntryViewModel>
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

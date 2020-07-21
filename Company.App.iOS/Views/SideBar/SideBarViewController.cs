@@ -7,9 +7,8 @@ using UIKit;
 
 namespace Company.App.Ios.Views.SideBar
 {
-    public class SideBarViewController : BindableViewController<SideBarViewModel>
+    public class SideBarViewController : FlexiBindableViewController<SideBarViewModel>
     {
-        [Weak]
         private static SideBarViewController _sideBarViewController;
         private UINavigationController _contentNavigationController;
         private SidebarController _sidebarController;
@@ -34,7 +33,7 @@ namespace Company.App.Ios.Views.SideBar
             ViewModel.CloseMenuInteraction.RequestedWeakSubscribe(CloseMenuInteraction_Requested);
         }
 
-        public void SetRootContent(ViewController viewController, SideBarMenuItem item)
+        public void SetRootContent(UIViewController viewController, SideBarMenuItem item)
         {
             _contentNavigationController.PopToRootViewController(false);
             _contentNavigationController.PushViewController(viewController, false);

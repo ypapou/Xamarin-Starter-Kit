@@ -205,8 +205,20 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FlexiMvvm.Bindings.PreRelease">
+      <Version>0.13.0-prerelease</Version>
+    </PackageReference>
+    <PackageReference Include="FlexiMvvm.Collections.PreRelease">
+      <Version>0.12.0-prerelease</Version>
+    </PackageReference>
+    <PackageReference Include="FlexiMvvm.Essentials.PreRelease">
+      <Version>0.14.0-prerelease</Version>
+    </PackageReference>
     <PackageReference Include="FlexiMvvm.FullStack.PreRelease">
-      <Version>$(FlexiMvvmVersion)</Version>
+      <Version>0.12.0-prerelease</Version>
+    </PackageReference>
+    <PackageReference Include="FlexiMvvm.Lifecycle.PreRelease">
+      <Version>0.13.1-prerelease</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>2.1.1</Version>

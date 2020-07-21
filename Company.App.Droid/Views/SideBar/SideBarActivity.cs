@@ -13,7 +13,7 @@ namespace Company.App.Droid.Views.SideBar
     using Android.Support.V4.App;
 
     [Activity(Theme = "@style/AppTheme.Translucent")]
-    public class SideBarActivity : AppCompatActivity<SideBarViewModel>
+    public class SideBarActivity : FlexiAppCompatActivity<SideBarViewModel>
     {
         private const string RootContentBackStackEntryName = "RootContent";
 

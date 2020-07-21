@@ -3,7 +3,7 @@ using FlexiMvvm.Views;
 
 namespace Company.App.Ios.Views
 {
-    public class RootNavigationController : NavigationController<EntryViewModel>
+    public class RootNavigationController : FlexiNavigationController<EntryViewModel>
     {
         public RootNavigationController()
         {

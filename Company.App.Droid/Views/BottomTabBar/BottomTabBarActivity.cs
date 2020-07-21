@@ -30,7 +30,7 @@ namespace Company.App.Droid.Views.BottomTabBar
     using Android.Support.V4.App;
 
     [Activity]
-    public class BottomTabBarActivity : BindableAppCompatActivity<BottomTabBarViewModel>
+    public class BottomTabBarActivity : FlexiBindableAppCompatActivity<BottomTabBarViewModel>
     {
         private const string RootContentBackStackEntryName = "RootContent";
 

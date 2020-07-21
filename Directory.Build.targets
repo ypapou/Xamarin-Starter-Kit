@@ -1,22 +1,5 @@
 <Project>
 
-  <PropertyGroup>
-    <FlexiMvvmVersion>0.10.8-prerelease</FlexiMvvmVersion>
-    <FlexiMvvmGenerationPath>$(NuGetPackageRoot)FlexiMvvm.Generation.Prerelease\$(FlexiMvvmVersion)\lib\netstandard2.0</FlexiMvvmGenerationPath>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="FlexiMvvm.Common.PreRelease" Version="$(FlexiMvvmVersion)" />
-    <PackageReference Include="FlexiMvvm.Generation.PreRelease" Version="$(FlexiMvvmVersion)" PrivateAssets="All" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <T4ParameterValues Include="FlexiMvvmGenerationPath">
-      <Value>$(FlexiMvvmGenerationPath)</Value>
-      <Visible>False</Visible>
-    </T4ParameterValues>
-  </ItemGroup>
-
   <Import Project="$(MSBuildThisFileDirectory)\CodeStyles.targets" />
 
 </Project>

@@ -8,7 +8,7 @@ using FlexiMvvm.Views;
 
 namespace Company.App.Droid.Views.SideBar
 {
-    public class SideBarMenuFragment : BindableFragment<SideBarMenuViewModel>
+    public class SideBarMenuFragment : FlexiBindableFragment<SideBarMenuViewModel>
     {
         private NavigationView NavigationView { get; set; }
 

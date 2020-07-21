@@ -1,5 +1,22 @@
 <Project>
 
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FlexiMvvm.Common.PreRelease" Version="0.10.8-prerelease" />
+    <PackageReference Include="FlexiMvvm.Generation.PreRelease" Version="0.10.8-prerelease" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <T4ParameterValues Include="FlexiMvvmGenerationPath">
+      <Value>$(NuGetPackageRoot)FlexiMvvm.Generation.Prerelease\0.10.8-prerelease\lib\netstandard2.0</Value>
+      <Visible>False</Visible>
+    </T4ParameterValues>
+  </ItemGroup>
+
   <Import Project="$(MSBuildThisFileDirectory)MobileBuildTools.props" />
 
 </Project>

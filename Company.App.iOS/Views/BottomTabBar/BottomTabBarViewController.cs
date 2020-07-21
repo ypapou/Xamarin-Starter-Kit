@@ -8,13 +8,13 @@ using UIKit;
 
 namespace Company.App.Ios.Views.BottomTabBar
 {
-    public class BottomTabBarViewController : BindableTabBarController<BottomTabBarViewModel>
+    public class BottomTabBarViewController : FlexiBindableTabBarController<BottomTabBarViewModel>
     {
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            var template1NavigationController = new NavigationController
+            var template1NavigationController = new UINavigationController
             {
                 TabBarItem = new UITabBarItem(
                     Strings.BottomTabBar_Item_Template1,
@@ -22,7 +22,7 @@ namespace Company.App.Ios.Views.BottomTabBar
                     AppTheme.Current.Images.GetTemplate1SelectedIcon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal))
             };
 
-            var template2NavigationController = new NavigationController
+            var template2NavigationController = new UINavigationController
             {
                 TabBarItem = new UITabBarItem(
                     Strings.BottomTabBar_Item_Template2,
@@ -30,7 +30,7 @@ namespace Company.App.Ios.Views.BottomTabBar
                     AppTheme.Current.Images.GetTemplate2SelectedIcon24().ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal))
             };
 
-            var template3NavigationController = new NavigationController
+            var template3NavigationController = new UINavigationController
             {
                 TabBarItem = new UITabBarItem(
                     Strings.BottomTabBar_Item_Template3,
@@ -49,7 +49,7 @@ namespace Company.App.Ios.Views.BottomTabBar
             this.ViewControllerSelectedWeakSubscribe(BottomTabBarViewController_ViewControllerSelected);
         }
 
-        public void SetRootContent(Func<ViewController> viewControllerFactory, BottomTabBarItem item)
+        public void SetRootContent(Func<UIViewController> viewControllerFactory, BottomTabBarItem item)
         {
             var tabNavigationController = (UINavigationController)GetTabViewController(item);
 
